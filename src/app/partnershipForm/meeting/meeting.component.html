@@ -1,0 +1,16 @@
+<div class="circle-container">
+  <div class="circle"><i class="bi bi-chat-square-text-fill"></i></div>
+  <div class="circle"><i class="bi bi-calendar-check"></i></div>
+  <div class="nextcircle"><i class="bi bi-check-square"></i></div>
+  
+
+</div>
+<full-calendar [options]="calendarOptions" class="form-group" class="calender">
+  <ng-template #eventContent let-arg>
+    <b>{{arg.timeText}}</b>
+    <i>{{arg.event.title}}</i>
+  </ng-template>
+</full-calendar>
+<button type="button" class="btn mb-md-0 mb-2 btn-primary" [routerLink]="['/MainReFormComponent/topicMessageComponent']">Previous</button>    
+
+<button type="button" class="btn mb-md-0 mb-2 btn-primary" [routerLink]="['/MainReFormComponent/validationComponent']">next Step</button>    

@@ -1,0 +1,75 @@
+<div class="content">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-5 order-md-2">
+          <img src="../../assets/img/login2.jpg" alt="Image" class="img-fluid">
+        </div>
+        <div class="col-md-7 contents">
+          <div class="row justify-content-center">
+            <div class="col-md-12">
+              <div class="mb-4">
+              <h3>Sign Up to <strong>BIZZMATCH</strong></h3>
+              <p class="mb-4">Please Try to enter the right information.</p>
+            </div>
+            <form  #signUpForm="ngForm" (ngSubmit)="onSubmit(signUpForm)">
+            
+              <mdb-form-control>
+                <input mdbInput type="text" id="form1" class="form-control" name="username" required [(ngModel)]="username" />
+                <label mdbLabel class="form-label" for="form1">Username</label>
+
+              </mdb-form-control>
+              <span class="errmsg" style="color: red;" *ngIf="signUpForm.control.controls['username'].touched && signUpForm.control.controls['username'].invalid">* username is required</span>
+<hr>
+              <mdb-form-control>
+                <input mdbInput type="email" id="form1" class="form-control" name="email" required [(ngModel)]="email" />
+                <label mdbLabel class="form-label" for="form1">Email</label>
+
+              </mdb-form-control>
+              <span class="errmsg" style="color: red;" *ngIf="signUpForm.control.controls['email'].touched && signUpForm.control.controls['email'].invalid">* email is required</span>
+<hr>
+             
+
+              <mdb-form-control>
+                <input mdbInput type="tel" id="form1" class="form-control" name="phone" required [(ngModel)]="phone" />
+                <label mdbLabel class="form-label" for="form1">Phone</label>
+
+              </mdb-form-control>
+              <span class="errmsg" style="color: red;" *ngIf="signUpForm.control.controls['phone'].touched && signUpForm.control.controls['phone'].invalid">* phone is required</span>
+
+<hr>
+              <mdb-form-control>
+                <input mdbInput type="password" id="form1" class="form-control" name="password" required [(ngModel)]="password" />
+                <label mdbLabel class="form-label" for="form1">Password</label>
+
+              </mdb-form-control>
+              <span class="errmsg" style="color: red;" *ngIf="signUpForm.control.controls['password'].touched && signUpForm.control.controls['password'].invalid">* password is required</span>
+
+<hr>
+         
+              
+              <mdb-form-control>
+                <input mdbInput type="password" id="form1" class="form-control" name="passwordrpt" required [(ngModel)]="passwordrpt" />
+                <label mdbLabel class="form-label" for="form1">Repeat Password</label>
+
+              </mdb-form-control>
+              <span class="errmsg" style="color: red;" *ngIf="signUpForm.control.controls['passwordrpt'].touched && signUpForm.control.controls['passwordrpt'].invalid">* Repeating password is required</span>
+              <span class="errmsg" style="color: red;" *ngIf="signUpForm.control.controls['passwordrpt'].touched && !same">* Repeated password is incorrect</span>
+              <span class="errmsg" style="color: red;" *ngIf="signUpForm.submitted && isSignUpFailed">* {{ errorMessage }}</span>
+              <span class="errmsg" style="color: rgb(32, 178, 100);"  *ngIf="isSuccessful"> Registred successfuly !</span>
+<hr>
+              <button type="submit" class="btn mb-md-0 mb-2 btn-quarternary " [disabled]="signUpForm.invalid || isSuccessful">Sign Up</button>     
+              
+              
+            </form>
+            <div class=" mb-4 ">
+                
+              <span class="ml-auto"><a routerLink="" class="forgot-pass">Already have an account</a></span> 
+            </div>
+            </div>
+          </div>
+          
+        </div>
+        
+      </div>
+    </div>
+  </div>

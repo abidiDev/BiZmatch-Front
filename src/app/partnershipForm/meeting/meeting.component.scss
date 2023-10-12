@@ -1,0 +1,68 @@
+.calender { width: 200%; }
+@media (max-width: 1200px) {
+    .calender {
+      /* Adjust styles for smaller screens */
+      width: 100%;
+    }
+  }
+
+  /* steps */
+.circle-container {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin-top: 2%;
+  width: 200%;
+  
+  }
+  
+  .circle-container::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 25px; /* Hauteur de la ligne */
+  border-bottom: 1px solid black; /* Bordure de la ligne */
+  }
+  
+  .circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #1252A6;
+  z-index: 2;
+  
+  }
+  
+  .nextcircle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: rgba(42, 68, 164, 0.62);
+  z-index: 2;
+  
+  }
+  .prevcircle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #12a672;
+  z-index: 2;
+  
+  }
+  
+  .circle i {
+  font-size: 20px;
+  color: rgb(255, 255, 255);
+  }
+  
+

@@ -1,0 +1,81 @@
+<div class="mat-elevation-z8">
+  <table mat-table class="full-width-table" matSort aria-label="Elements">
+    <!-- Id Column -->
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
+      <td mat-cell *matCellDef="let row">{{row.id}}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Type</th>
+      <td mat-cell *matCellDef="let row">{{row.type}}</td>
+    </ng-container>
+    <ng-container matColumnDef="weight">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>price</th>
+      <td mat-cell *matCellDef="let row">{{row.price}}</td>
+
+    </ng-container>
+    <ng-container matColumnDef="symbol">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>surface</th>
+      <td mat-cell *matCellDef="let row">{{row.surface}}</td>
+
+    </ng-container>
+    <ng-container matColumnDef="symbol">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>number_floor</th>
+      <td mat-cell *matCellDef="let row">{{row.number_floor}}</td>
+
+    </ng-container>
+    <ng-container matColumnDef="symbol">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>number_rooms</th>
+      <td mat-cell *matCellDef="let row">{{row.number_rooms}}</td>
+
+    </ng-container>
+    <ng-container matColumnDef="symbol">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>nbr_appartment</th>
+      <td mat-cell *matCellDef="let row">{{row.nbr_appartment}}</td>
+
+    </ng-container>
+    <ng-container matColumnDef="symbol">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>equiped</th>
+      <td mat-cell *matCellDef="let row">{{row.equiped}}</td>
+
+    </ng-container>
+    <ng-container matColumnDef="symbol">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>nbr_office</th>
+      <td mat-cell *matCellDef="let row">{{row.nbr_office}}</td>
+
+    </ng-container>
+    <ng-container matColumnDef="symbol">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>garden</th>
+      <td mat-cell *matCellDef="let row">{{row.garden}}</td>
+
+    </ng-container>
+   
+    <ng-container matColumnDef="symbol">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>pool</th>
+      <td mat-cell *matCellDef="let row">{{row.pool}}</td>
+
+    </ng-container>
+    <ng-container matColumnDef="symbol">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>capacity</th>
+      <td mat-cell *matCellDef="let row">{{row.capacity}}</td>
+
+    </ng-container>
+    <ng-container matColumnDef="symbol">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>legal_status</th>
+      <td mat-cell *matCellDef="let row">{{row.legal_status}}</td>
+
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator #paginator
+      [length]="dataSource?.data?.length"
+      [pageIndex]="0"
+      [pageSize]="10"
+      [pageSizeOptions]="[5, 10, 20]"
+      aria-label="Select page">
+  </mat-paginator>
+</div>

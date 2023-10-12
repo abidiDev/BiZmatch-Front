@@ -1,0 +1,52 @@
+<header id="header" class="d-flex align-items-center">
+    <div class="container d-flex justify-content-between">
+  
+      <div class="logo">
+        <h1 class="text-light"><a [routerLink]="['/vitrine']">BIZZMATCH</a></h1>
+        <!-- <img src="../../assets/img/Logo.png" width="70" height="50" alt=""> -->
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a [routerLink]="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+      </div>
+
+ 
+<!--form modal-->
+<app-modal></app-modal>
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="active" [routerLink]="['/vitrine']">Home</a></li>
+          <li><a [routerLink]="['/vitrine']">About</a></li>
+          <li><a [routerLink]="['/MainServiceComponent']">Services</a></li>
+          <li><a [routerLink]="['/MainAdsComponent']">Ads</a></li>
+          <li><a [routerLink]="['/vitrine']">Testimonials</a></li>
+          <li><a [routerLink]="['/vitrine']">Pricing</a></li>
+          <li><a [routerLink]="['/blog']">Blog</a></li>
+          <li class="dropdown"><a [routerLink]="['/vitrine']"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a [routerLink]="['/vitrine']">Drop Down 1</a></li>
+              <li class="dropdown"><a [routerLink]="['/vitrine']"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
+                <ul>
+                  <li><a [routerLink]="['/vitrine']">Deep Drop Down 1</a></li>
+                  <li><a [routerLink]="['/vitrine']">Deep Drop Down 2</a></li>
+                  <li><a [routerLink]="['/vitrine']">Deep Drop Down 3</a></li>
+                  <li><a [routerLink]="['/vitrine']">Deep Drop Down 4</a></li>
+                  <li><a [routerLink]="['/vitrine']">Deep Drop Down 5</a></li>
+                </ul>
+              </li>
+              <li><a [routerLink]="['/vitrine']">Drop Down 2</a></li>
+              <li><a [routerLink]="['/vitrine']">Drop Down 3</a></li>
+              <li><a [routerLink]="['/vitrine']">Drop Down 4</a></li>
+            </ul>
+          </li>
+          <li id="btnauth"><button type="button" (click)="openFormModal()" [routerLink]="['/vitrine']" class="btn mb-md-0 mb-2 btn-primary btn-round">
+            <i class="ion-ios-heart mr-1"></i> SignIn
+            </button>
+          </li>
+          <li id="btnauth" *ngIf="this.authService.loggedIn()"><button type="button"  class="btn mb-md-0 mb-2 btn-primary btn-round" (click)="navigate()">
+            <i class="bi bi-person-fill"></i>            </button>
+          </li>
+        </ul>
+        <i class="bi mobile-nav-toggle bi-list"></i>
+      </nav><!-- .navbar -->
+  
+    </div>
+  </header>

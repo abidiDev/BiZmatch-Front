@@ -1,0 +1,43 @@
+<div class="content">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-5 order-md-2">
+          <img src="../../assets/img/sendmail.jpg" alt="Image" class="img-fluid">
+        </div>
+        <div class="col-md-7 contents">
+          <div class="row justify-content-center">
+            <div class="col-md-12">
+              <div class="mb-4">
+              <h3>Reset Password by <strong>Email</strong></h3>
+              <p class="mb-4">you have to be connect to your email to check the code.</p>
+            </div>
+            <form action="#" #forgetPwdForm="ngForm" (ngSubmit)="onSubmit(forgetPwdForm)">
+           
+              <mdb-form-control>
+                <input mdbInput type="email" id="form1" class="form-control" name="mail" required [(ngModel)]="mail" />
+                <label mdbLabel class="form-label" for="form1">Email</label>
+
+              </mdb-form-control>
+              <span class="errmsg" style="color: red;" *ngIf="forgetPwdForm.control.controls['mail'].touched && forgetPwdForm.control.controls['mail'].invalid">* email is required</span>
+<hr>
+        
+              <button type="submit" class="btn mb-md-0 mb-2 btn-quarternary " [disabled]="forgetPwdForm.invalid">Send</button>     
+              
+              
+            </form>
+            <div class="form-group first">
+
+              <span class="errmsg" style="color: red;" *ngIf="forgetPwdForm.submitted && !sendedEmail && !waiting">* {{ errorMessage }}</span>
+              <span class="errmsg" style="color: rgb(32, 178, 100);"  *ngIf="sendedEmail && !waiting"> An email has been sent please check it !</span>
+              <span class="errmsg" style="color: rgb(32, 95, 178);"  *ngIf="waiting"> sending email ...</span>
+              </div>
+            <span class="ml-auto"><a routerLink="" class="forgot-pass">Back to login</a></span> 
+
+            </div>
+          </div>
+          
+        </div>
+        
+      </div>
+    </div>
+  </div>

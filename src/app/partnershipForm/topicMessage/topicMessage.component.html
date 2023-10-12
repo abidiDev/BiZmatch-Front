@@ -1,0 +1,35 @@
+<div class="circle-container">
+  <div class="circle"><i class="bi bi-chat-square-text-fill"></i></div>
+  <div class="nextcircle"><i class="bi bi-calendar-check"></i></div>
+  <div class="nextcircle"><i class="bi bi-check-square"></i></div>
+  
+
+</div>
+<div _ngcontent-nwo-c24="" class="reply-form">
+  <h2 _ngcontent-nwo-c24="">what's your message to the entreprise? </h2>
+<form #signInForm="ngForm"  class="ng-untouched ng-pristine ng-valid">
+  
+                        <div _ngcontent-nwo-c24="" class="row">
+                          <div _ngcontent-nwo-c24="" class="col form-group">
+                      
+                          <textarea  id="w3review" name="w3review" rows="4" cols="150">
+                            At w3schools.com you will learn how to make a website. They offer free tutorials in all web development technologies.
+                            </textarea>
+                        </div>
+                      </div>
+
+                      
+
+                       
+
+                      <button type="button" class="btn mb-md-0 mb-2 btn-primary" [routerLink]="['/entreprise']" >Previous</button>    
+
+                      <button type="button" class="btn mb-md-0 mb-2 btn-primary" [routerLink]="['/MainReFormComponent/meetingComponent']" (click)= "saveLocation(signInForm)" >next Step</button>    
+
+
+      
+                     
+</form>
+  
+  
+                      

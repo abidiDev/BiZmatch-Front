@@ -1,0 +1,78 @@
+<div class="content">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-5 order-md-2">
+          <img src="../../assets/img/login2.jpg" alt="Image" class="img-fluid">
+        </div>
+        <div class="col-md-7 contents">
+          <div class="row justify-content-center">
+            <div class="col-md-12">
+              <div class="mb-4">
+              <h3>Sign In to <strong>BIZZMATCH</strong></h3>
+              <p class="mb-4">Any type of transaction will require you to log in.</p>
+            </div>
+            <form  #signInForm="ngForm" (ngSubmit)="onSubmit(signInForm)">
+            
+
+              <mdb-form-control>
+                <input mdbInput type="text" id="form1" class="form-control" name="username" required [(ngModel)]="username" />
+                <label mdbLabel class="form-label" for="form1">Username</label>
+
+              </mdb-form-control>
+              <span class="errmsg" style="color: red;" *ngIf="signInForm.control.controls['username'].touched && signInForm.control.controls['username'].invalid">* Username is required</span>
+
+              
+      <hr>
+
+              <mdb-form-control>
+                <input mdbInput type="password" id="form1" class="form-control" name="password" required [(ngModel)]="password" />
+                <label mdbLabel class="form-label" for="form1">Password</label>
+
+              </mdb-form-control>
+              <span class="errmsg" style="color: red;" *ngIf="signInForm.control.controls['password'].touched && signInForm.control.controls['password'].invalid">* Password is rereqiured </span> 
+
+              <div class="form-group first">
+
+              <span class="errmsg" style="color: red;" *ngIf="signInForm.submitted && isLoginFailed">* {{ errorMessage }}</span>
+              <span class="errmsg" style="color: rgb(32, 178, 100);"  *ngIf="isLoggedIn && captcha==''"> authenticated successfuly !</span>
+              </div>
+              <button type="submit" class="btn mb-md-0 mb-2 btn-quarternary " [disabled]="signInForm.invalid " >Sign in</button>    
+            </form>
+            
+
+
+            <div class="mb-4 mt-4 mb-4 align-items-left">
+              <span class="ml-3"><a routerLink="SignupFormComponent" class="forgot-pass">create new account</a></span> 
+
+                
+              <span class="ml-3"><a routerLink="ForgedPwdFormComponent" class="forgot-pass">Forgot Password</a></span> 
+            </div>
+              <span class="d-block text-left  text-muted"> or sign in with</span>
+              
+              <div class="social-login">
+                <button type="button" class="btn mb-md-0 mb-2 btn-fb" (click)="loginWithFacebook()">
+                    <i class="bi bi-facebook"></i>                          
+                </button>
+                  <button type="button" class="btn mb-md-0 mb-2 btn-twitter">
+                    <i class="bi bi-twitter"></i> 
+                  </button>
+               <button type="button" class="btn mb-md-0 mb-2 btn-pinterest">
+                <i class="bi bi-google"></i> 
+              </button>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+
+<div [hidden]="signInForm.invalid">
+  <re-captcha (resolved)="resolved()" siteKey="6LeNYPUlAAAAAMIYkdYR8kHDMJM33EkWP3yQ55jC
+  "></re-captcha>
+</div>
+<div [hidden]="!captcha">
+</div>
