@@ -26,6 +26,9 @@ import { ForumComponent } from './BackOffice/forum/forum.component';
 import { ResetFormComponent } from './auth/reset-form/reset-form.component';
 
 import{AuthguardGuard} from'./shared/authguard.guard'
+import { MainCRMComponent } from './CRM/main-crm/main-crm.component';
+import { CrmClientsComponent } from './CRM/crm-clients/crm-clients.component';
+import { CRMContentComponent } from './CRM/crmcontent/crmcontent.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'vitrine', pathMatch: 'full' }
@@ -96,7 +99,7 @@ const routes: Routes = [
   ],// another child route component that the router renders
   },
   { path: 'entreprise', component: MainEntrepriseComponent },
-  { path: 'DashboardMainComponent', component: DashboardMainComponent, canActivate:[AuthguardGuard],
+  { path: 'DashboardMainComponent', component: DashboardMainComponent, 
   children :[
     { path: '',
     component: StatisticComponent, },
@@ -113,7 +116,18 @@ const routes: Routes = [
    
      ]
     },
+    { path: 'MainCRMComponent',
+    component:MainCRMComponent,  children :[
+      { path: '',
+      component:CRMContentComponent, },
+      { path: 'CrmClientsComponent',
+      component:CrmClientsComponent, },
+      { path: 'CRMContentComponent',
+      component:CRMContentComponent, },
+      
 
+
+    ]},
     
     { path: '404', component: NotFoundComponent },  // Wildcard route for a 404 page
     { path: '**', component: NotFoundComponent },  // Wildcard route for a 404 page

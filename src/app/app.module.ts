@@ -56,6 +56,10 @@ import { ResetFormComponent } from './auth/reset-form/reset-form.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RecaptchaModule } from 'ng-recaptcha';
 import { FullCalendarModule } from '@fullcalendar/angular';
+import { MainCRMComponent } from './CRM/main-crm/main-crm.component';
+import { CRMContentComponent } from './CRM/crmcontent/crmcontent.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { CrmClientsComponent } from './CRM/crm-clients/crm-clients.component';
 
 @NgModule({
   declarations: [
@@ -99,7 +103,10 @@ import { FullCalendarModule } from '@fullcalendar/angular';
     RealestateInfoComponent,
     ContratComponent,
     ForumComponent,
-    ResetFormComponent
+    ResetFormComponent,
+    MainCRMComponent,
+    CRMContentComponent,
+    CrmClientsComponent,
   ],
   imports: [
     BrowserModule,
@@ -113,7 +120,9 @@ import { FullCalendarModule } from '@fullcalendar/angular';
     BrowserAnimationsModule,
     MdbFormsModule,
     RecaptchaModule,
-    FullCalendarModule // register FullCalendar with your app
+    FullCalendarModule, // register FullCalendar with your app,
+    DragDropModule,
+
 
   ],
   providers: [AuthServiceService,
