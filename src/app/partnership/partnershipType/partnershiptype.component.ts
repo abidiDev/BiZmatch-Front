@@ -3,11 +3,11 @@ import { NgForm } from '@angular/forms';
 import { ServiceRealestateService } from 'src/app/ServicesBack/service-realestate.service';
 
 @Component({
-  selector: 'app-selltype',
-  templateUrl: './selltype.component.html',
-  styleUrls: ['./selltype.component.scss']
+  selector: 'app-partnershipType',
+  templateUrl: './partnershiptype.component.html',
+  styleUrls: ['./partnershiptype.component.scss']
 })
-export class SelltypeComponent implements OnInit  {
+export class PartnershiptypeComponent implements OnInit  {
 
   constructor(private sre:ServiceRealestateService){
 

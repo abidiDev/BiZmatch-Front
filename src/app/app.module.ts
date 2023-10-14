@@ -23,8 +23,8 @@ import { ForgedPwdFormComponent } from './auth/forged-pwd-form/forged-pwd-form.c
 import { FormsModule , ReactiveFormsModule } from '@angular/forms';
 import { MainServiceComponent } from './services/main-service/main-service.component';
 import { ServiceInfoComponent } from './services/service-info/service-info.component';
-import { SelltypeComponent } from './sell/selltype/selltype.component';
-import { SellMainComponent } from './sell/sell-main/sell-main.component';
+import { PartnershiptypeComponent } from './partnership/partnershiptype/partnershiptype.component';
+import { PartnershipTypeMainComponent} from './partnership/main-partnershipType/partnershipType-main.component';
 
 import { FormCardComponent } from './partnershipForm/form-card/form-card.component';
 import { MainReFormComponent } from './partnershipForm/main-re-form/main-re-form.component';
@@ -32,8 +32,8 @@ import { validationComponent } from './partnershipForm/validation/validation.com
 import { topicMessageComponent } from './partnershipForm/topicMessage/topicMessage.component';
 import { meetingComponent } from './partnershipForm/meeting/meeting.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { MainAdsComponent } from './ads/main-ads/main-ads.component';
-import { AdAfficheComponent } from './ads/ad-affiche/ad-affiche.component';
+import { MainEntrepriseListComponent } from './EntrepriseList/main-entrepriseList/main-entrepriseList.component';
+import { EntrepriseListComponent } from './EntrepriseList/entreprise-List/entreprise-list.component';
 import { MainDashboardProfilComponent } from './BackOffice/Dashboard_profil/main-dashboard-profil/main-dashboard-profil.component';
 
 import { DashboardHeaderComponent } from './BackOffice/dashboard-header/dashboard-header.component';
@@ -80,15 +80,15 @@ import { FullCalendarModule } from '@fullcalendar/angular';
   
     MainServiceComponent,
     ServiceInfoComponent,
-    SelltypeComponent,
-    SellMainComponent,
+    PartnershiptypeComponent,
+    PartnershipTypeMainComponent,
     MainReFormComponent,
     validationComponent,
     FormCardComponent,
     topicMessageComponent,
     meetingComponent,
-    MainAdsComponent,
-    AdAfficheComponent,
+    MainEntrepriseListComponent,
+    EntrepriseListComponent,
     MainDashboardProfilComponent,
     DashboardHeaderComponent,
     DashboardSideBarComponent,
