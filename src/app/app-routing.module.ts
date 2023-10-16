@@ -1,4 +1,3 @@
-import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MainVitrineComponent } from './vitrine/main-vitrine/main-vitrine.component';
 import { NotFoundComponent } from './not-found/not-found.component';
@@ -7,14 +6,14 @@ import { SigninFormComponent } from './auth/signin-form/signin-form.component';
 import { SignupFormComponent } from './auth/signup-form/signup-form.component';
 import { ForgedPwdFormComponent } from './auth/forged-pwd-form/forged-pwd-form.component';
 import { MainServiceComponent } from './services/main-service/main-service.component';
-import { SellMainComponent } from './sell/sell-main/sell-main.component';
+import { PartnershipTypeMainComponent} from './partnership/main-partnershipType/partnershipType-main.component';
 import { MainReFormComponent } from './partnershipForm/main-re-form/main-re-form.component';
 import { meetingComponent } from './partnershipForm/meeting/meeting.component';
 import { validationComponent } from './partnershipForm/validation/validation.component';
 import { topicMessageComponent } from './partnershipForm/topicMessage/topicMessage.component';
 
-import { MainAdsComponent } from './ads/main-ads/main-ads.component';
-import { AdAfficheComponent } from './ads/ad-affiche/ad-affiche.component';
+import { MainEntrepriseListComponent } from './EntrepriseList/main-entrepriseList/main-entrepriseList.component';
+import { EntrepriseListComponent } from './EntrepriseList/entreprise-List/entreprise-list.component';
 
 import { DashboardMainComponent } from './BackOffice/dashboard-main/dashboard-main.component';
 import { StatisticComponent } from './BackOffice/statistic/statistic.component';
@@ -29,6 +28,7 @@ import{AuthguardGuard} from'./shared/authguard.guard'
 import { MainCRMComponent } from './CRM/main-crm/main-crm.component';
 import { CrmClientsComponent } from './CRM/crm-clients/crm-clients.component';
 import { CRMContentComponent } from './CRM/crmcontent/crmcontent.component';
+import { NgModule } from '@angular/core';
 
 const routes: Routes = [
   { path: '', redirectTo: 'vitrine', pathMatch: 'full' }
@@ -63,19 +63,19 @@ const routes: Routes = [
    
   },
   {
-    path: 'MainAdsComponent',
-    component: MainAdsComponent, 
+    path: 'MainEntrepriseListComponent',
+    component: MainEntrepriseListComponent, 
    
   },
   
   {
-    path: 'AdAfficheComponent/:id',
-    component: AdAfficheComponent, 
+    path: 'EntrepriseListComponent/:id',
+    component: EntrepriseListComponent, 
    
   },
   {
-    path: 'SellMainComponent',
-    component: SellMainComponent,
+    path: 'PartnershipTypeMainComponent',
+    component: PartnershipTypeMainComponent,
    // another child route component that the router renders
   },
   {
@@ -94,8 +94,6 @@ const routes: Routes = [
       component: topicMessageComponent, 
     },
     
-    
-  
   ],// another child route component that the router renders
   },
   { path: 'entreprise', component: MainEntrepriseComponent },
