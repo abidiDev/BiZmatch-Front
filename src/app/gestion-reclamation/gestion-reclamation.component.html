@@ -1,50 +1,59 @@
 
-<app-dashboard-header></app-dashboard-header>
+  <div class="pagetitle">
+    <h1>Reclamation</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item">reclamation</li>
+      </ol>
+    </nav>
+  </div><!-- End Page Title -->
+
+  <section class="section">
+    <div class="row">
+      <div class="card">
+
+      <div class="col-lg-12">
+<div class="datatable-container">
+          <div class="card-body">
+
+            <h5  class="card-title">gestion reclamation</h5>
+
+            <!-- Default Table -->
+            <table class="table datatable datatable-table" >
+                <thead >
+                  <tr  >
+                    <th>Statut</th>
+                    <th>Sujet</th>
+                    <th>Description</th>
+                   
+                  </tr>
+                </thead>
+                 <tbody>
+                  <tr *ngFor="let reclamation of reclamations " >
+                    <td>
+                      <button class="btn status-button" [ngClass]="{'btn-success': reclamation.statut, 'btn-primary': !reclamation.statut}" (click)="update(reclamation)">
+                        {{ reclamation.statut ? 'Traité' : 'En cours ..' }}
+                      </button>
+                    </td>
+                    <td>{{ reclamation.subject }}</td>
+                    <td class="description-cell">{{ reclamation.description }}</td>
   
-<!-- ======= Sidebar ======= -->
+  
+  
+                  </tr>
+                 </tbody>
+              </table>
+              <!-- End Default Table Example -->
+            <!-- End Default Table Example -->
+          </div>
+       
 
-<app-dashboard-side-bar *ngIf="userId !== 3"></app-dashboard-side-bar>
-<app-side-bar *ngIf="userId == 3"></app-side-bar>
-
-
-
-<!-- app.component.html -->
-<br><br><br>
-
-<main id="main2" class="main2">
-
-
-<!-- app.component.html -->
-<br><br><br>
-
-<!-- app.component.html -->
-<div class="container">
-    <br><br><br>
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Statut</th>
-          <th>Sujet</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let reclamation of reclamations">
-          <td>
-            <button class="btn status-button" [ngClass]="{'btn-success': reclamation.statut, 'btn-primary': !reclamation.statut}" (click)="update(reclamation)">
-              {{ reclamation.statut ? 'Traité' : 'En cours ..' }}
-            </button>
-          </td>
-          <td>{{ reclamation.subject }}</td>
-          <td class="description-cell">{{ reclamation.description }}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+      </div>
+    </div>
+     </div>
+    </div>
+  </section>
 
 
 
-
-</main><!-- End #main -->
-
-<!-- ======= Footer ======= -->

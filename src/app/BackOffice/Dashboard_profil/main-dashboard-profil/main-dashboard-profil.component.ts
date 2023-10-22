@@ -7,6 +7,8 @@ import { ChatServiceService } from 'src/app/serviceBack/chat-service.service';
 import { NgForm } from '@angular/forms';
 import { SendMessageRequest } from 'src/app/Model/send-message-request.model';
 import { ConversationRequest } from 'src/app/Model/conversation-request.model';
+import { EntrepriseRequest } from 'src/app/Model/entreprise-request.model';
+import { CrmServiceService } from 'src/app/serviceBack/crm-service.service';
 
 @Component({
   selector: 'app-main-dashboard-profil',
@@ -34,18 +36,30 @@ sender:any;
  Users!:any[];
  cr=new ConversationRequest();
  addConvbtn=false;
+ entrepriseR:EntrepriseRequest | undefined;
+nom: any;
+description: any;
+creationDate: any;
+employeeNBR: any;
+income: any;
+secteur: any;
+nomS: any;
+descriptionS:any;
+discount:any;
+servicequality:any;
 
-constructor(private sanitizer:DomSanitizer, private route:ActivatedRoute,public authService: AuthServiceService, private chatS: ChatServiceService ){
+constructor(private sanitizer:DomSanitizer, private route:ActivatedRoute,public authService: AuthServiceService, private crmService: CrmServiceService ){
 
   }
   ngOnInit(): void {
-    this.idUser = this.route.snapshot.paramMap.get('idUser');
+    this.idUser = sessionStorage.getItem("userID");
+    console.log(sessionStorage.getItem("userID"))
 
-    this.getUserByID(this.idUser);
+    this.getUserByID(this.idUser );
     console.log(this.authService.User);
 
   
-    this.authService.getUsers().subscribe((response)=>{this.Users=response})
+    //this.authService.getUsers().subscribe((response)=>{this.Users=response})
 
    
 
@@ -82,60 +96,31 @@ constructor(private sanitizer:DomSanitizer, private route:ActivatedRoute,public 
     ); 
     return formData;
   }
-  onSubmit(updateProfileForm:any){
-    this.authService.User.fullName=updateProfileForm.value.fullName;
-    this.authService.User.username=updateProfileForm.value.username;
-    this.authService.User.birthdate=updateProfileForm.value.birthdate;
-    this.authService.User.email=updateProfileForm.value.email;
-    this.authService.User.phone=updateProfileForm.value.phone;
-    this.authService.User.address=updateProfileForm.value.address;
-    console.log(this.authService.User);
-    const actorFormDate=this.prepareFormData(this.authService.User);
-
-
-    this.authService.updateUser(actorFormDate).subscribe(
-      data => {
-        this.authService.User=data;
-
-        this.valid=true;
-        console.log(data)
-
-        setTimeout( () => {
-
-          this.valid=false;
-  
-           }, 3000);
-  
-  },
-      err => {
-        this.error=true;
-        console.log(err)
-
-        setTimeout( () => {
-
-          this.error=false;
-  
-           }, 3000);  
-
-      }
-    );
-
-
-  }
-
-  OnFileSelected(event:any){
+  onSubmit(){
+    this.entrepriseR=new EntrepriseRequest();
+    const actorId=sessionStorage.getItem("userID");
     
-    if(event.target.files){
-      console.log(event);
-      const file=event.target.files[0];
-      
-      const fileHandle: fileHandle={
-        file: file,
-        url: this.sanitizer.bypassSecurityTrustUrl(
-           window.URL.createObjectURL(file))
-      }
-     this.authService.User.actorImage=fileHandle;
-    }
+    this.entrepriseR._ActorId=Number(actorId);
+    this.entrepriseR._nom=this.nom;
+    this.entrepriseR._description=this.description;
+    this.entrepriseR._creationDate=this.creationDate;
+    this.entrepriseR._employeeNBR=this.employeeNBR;
+    this.entrepriseR._employeeNBR=this.income;
+    this.entrepriseR._secteur=this.secteur;
+    this.entrepriseR._nomS=this.nomS;
+    this.entrepriseR._descriptionS=this.descriptionS;
+    this.entrepriseR._discount=this.discount;
+    this.entrepriseR._servicequality=this.servicequality;
+    this.crmService.createEntreprise(this.entrepriseR).subscribe(
+      data => {this.valid=true;
+        console.log(data);}
+      );
+  
+
+
+
   }
+
+ 
   }
 

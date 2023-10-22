@@ -3,12 +3,72 @@
     <app-dashboard-header></app-dashboard-header>
   
     <!-- ======= Sidebar ======= -->
-    <app-dashboard-side-bar></app-dashboard-side-bar>
-  
+    <aside id="sidebar" class="sidebar">
+         
+        <ul class="sidebar-nav" id="sidebar-nav" >
+
+          <li class="nav-item">
+            <a class="nav-link " [routerLink]="['/DashboardMainComponent']">
+              <i class="bi bi-grid"></i>
+              <span>Dashboard</span>
+            </a>
+          </li><!-- End Dashboard Nav -->
+             
+          <li class="nav-item" *ngIf="userId!==3">
+            <a class="nav-link collapsed" [routerLink]="['/DashboardMainComponent/MainDashboardProfilComponent',userIdFromStorage]">
+              <i class="bi bi-person"></i>
+              <span>Profile</span>
+            </a>
+          </li>
+
+    
+
+    
+               <li class="nav-item dropdown" class="nav-item" (click)="toggleReclamationDropdown()" *ngIf="userId!==3">
+        <a class="nav-link" class="nav-link collapsed" [class.active]="reclamationDropdownOpen">
+          <i class="bi bi-envelope"></i>
+          <span>Reclamation</span>
+        </a>
+        <ul class="dropdown-menu" class="nav-item" [class.show]="reclamationDropdownOpen">
+          <li><a class="dropdown-item" class="nav-link collapsed"  [routerLink]="['reclamation']" >Envoyer reclamation</a></li>
+          <li><a class="dropdown-item" class="nav-link collapsed"  [routerLink]="['list-reclamation']">Mes réclamations</a></li>
+        </ul>
+      </li>
+    
+            <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#" aria-expanded="false" [routerLink]="['DatatableComponent']" *ngIf="userId!==3">
+              <i class="bi bi-layout-text-window-reverse"></i><span>Partnership</span>
+            </a>
+
+         
+            <li class="nav-item" *ngIf="userId!==3">
+              <a class="nav-link collapsed" [routerLink]="['/DashboardMainComponent/MainDashboardProfilComponent',userIdFromStorage]">
+                <i class="bi bi-person"></i>
+                <span>Profile</span>
+              </a>
+            </li>
+          
+           
+       
+             
+    
+         
+    
+            <li class="nav-item" *ngIf="userId===3">
+              <a class="nav-link collapsed" [routerLink]="['rec']">
+                <i class="bi bi-envelope"></i>
+                <span>gestion réclamation</span>
+              </a>
+            </li>
+    
+    
+        </ul>
+    
+      </aside><!-- End Sidebar-->
+    
     <main id="main2" class="main2">
 
   
-     <router-outlet></router-outlet>
+     <router-outlet> </router-outlet>
 
 
      

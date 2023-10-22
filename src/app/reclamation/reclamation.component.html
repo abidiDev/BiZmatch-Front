@@ -1,15 +1,5 @@
 
-<app-dashboard-header></app-dashboard-header>
-  
-<!-- ======= Sidebar ======= -->
 
-<app-dashboard-side-bar *ngIf="userId !== 3"></app-dashboard-side-bar>
-<app-side-bar *ngIf="userId == 3"></app-side-bar>
-<main id="main2" class="main2">
-
-
-<!-- app.component.html -->
-<br><br><br>
 <div class="container">
     <form (ngSubmit)="onSubmit(reclamationForm)" #reclamationForm="ngForm">
        <div class="form-group">
@@ -39,8 +29,6 @@
       </div>
    </div>
  
-</main><!-- End #main -->
 
-<!-- ======= Footer ======= -->
 
 

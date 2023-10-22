@@ -23,7 +23,7 @@ import { ForgedPwdFormComponent } from './auth/forged-pwd-form/forged-pwd-form.c
 import { FormsModule , ReactiveFormsModule } from '@angular/forms';
 import { MainServiceComponent } from './services/main-service/main-service.component';
 import { ServiceInfoComponent } from './services/service-info/service-info.component';
-import { PartnershiptypeComponent } from './partnership/partnershiptype/partnershiptype.component';
+import { PartnershiptypeComponent } from './partnership/partnershipType/partnershiptype.component';
 import { PartnershipTypeMainComponent} from './partnership/main-partnershipType/partnershipType-main.component';
 
 import { FormCardComponent } from './partnershipForm/form-card/form-card.component';
@@ -56,10 +56,17 @@ import { ResetFormComponent } from './auth/reset-form/reset-form.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RecaptchaModule } from 'ng-recaptcha';
 import { FullCalendarModule } from '@fullcalendar/angular';
+
 import { ReclamationComponent } from './reclamation/reclamation.component';
 import { ListReclamationComponent } from './list-reclamation/list-reclamation.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { GestionReclamationComponent } from './gestion-reclamation/gestion-reclamation.component';
+
+
+import { MainCRMComponent } from './CRM/main-crm/main-crm.component';
+import { CRMContentComponent } from './CRM/crmcontent/crmcontent.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { CrmClientsComponent } from './CRM/crm-clients/crm-clients.component';
 
 
 @NgModule({
@@ -101,14 +108,19 @@ import { GestionReclamationComponent } from './gestion-reclamation/gestion-recla
     DashboardMainComponent,
     StatisticComponent,
     DatatableComponent,
-    RealestateInfoComponent,
     ContratComponent,
     ForumComponent,
     ResetFormComponent,
+
     ReclamationComponent,
     ListReclamationComponent,
     SideBarComponent,
-    GestionReclamationComponent
+    GestionReclamationComponent,
+
+    MainCRMComponent,
+    CRMContentComponent,
+    CrmClientsComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -122,7 +134,9 @@ import { GestionReclamationComponent } from './gestion-reclamation/gestion-recla
     BrowserAnimationsModule,
     MdbFormsModule,
     RecaptchaModule,
-    FullCalendarModule // register FullCalendar with your app
+    FullCalendarModule, // register FullCalendar with your app,
+    DragDropModule,
+
 
   ],
   providers: [AuthServiceService,

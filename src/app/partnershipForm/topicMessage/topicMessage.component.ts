@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ServiceRealestateService } from 'src/app/ServicesBack/service-realestate.service';
+import { Router } from '@angular/router';
+import { PartnershipRequest } from 'src/app/Model/partnership-request';
+import { PartnershipRe } from 'src/app/PartnershipRe.model';
+import { CrmServiceService } from 'src/app/serviceBack/crm-service.service';
+
 
 @Component({
   selector: 'app-topicMessage',
@@ -10,23 +14,25 @@ import { ServiceRealestateService } from 'src/app/ServicesBack/service-realestat
 export class topicMessageComponent implements OnInit {
 
 
-  state: string = ''; 
-  city: string = '' ; 
-  district: string = '' ; 
-  street: string = '' ; 
-  number: number | undefined ; 
-  latitude : number | undefined ; 
-  longitude : number | undefined ; 
-  constructor(private sre: ServiceRealestateService){}
+  message: string = ''; 
+  
+  constructor(public crmService: CrmServiceService, private router: Router){}
 
 
   ngOnInit(): void {
     
   }
-  saveLocation(signInForm:NgForm) 
 
-  { 
-    this.sre.realestateRequest._localisation=signInForm.value
-console.log( this.sre.realestateRequest);
-}
+  addPartnershipRequest(){
+    const pr=new PartnershipRequest();
+    pr._content=this.message;
+    pr._recipientID=sessionStorage.getItem("user2ID");
+    console.log(pr._recipientID)
+    this.crmService.addPartnershipRequest(pr).subscribe((response: any )=> {
+      this.router.navigate(['/MainReFormComponent/meetingComponent']); // Replace 'other-component' with the actual route path you want to navigate to.
+    
+    
+    });
+  }
+  
 }

@@ -10,8 +10,6 @@
             </div>
           </div>
         </li>
-          <li  data-filter=".filter-app" (click)="setType('NEW')"> NEW</li>
-          <li data-filter=".filter-card" (click)="setType('SIZE')">SIZE</li>
          
         </ul>
         <div class="row">
@@ -23,152 +21,31 @@
           </div>
         </div>
         <ul id="portfolio-flters">
-        <li data-filter=".filter-web" class="filter-active" (click)="setPrice(min.value,max.value )" >Filter</li>
       </ul>
       
       </div>
     </div>
     <div class="row portfolio-container aos-init aos-animate" data-aos="fade-up" >
-      <div class="col-lg-4 col-md-6 portfolio-item filter-web" *ngFor="let ad of ads ">
+      <div class="col-lg-4 col-md-6 portfolio-item filter-web" *ngFor="let e of entreprise ">
       
-        <img src="assets/img/portfolio/portfolio-2.jpg" class="img-fluid" alt="">
+        <img src="assets/img/vermeg.jpg" class="img-fluid" alt="">
         <div class="portfolio-info">
-          <h4>Web 3</h4>
-          <p >Web</p>
+          <h4>{{e.nom}}</h4>
+          <p >{{e.secteur}}</p>
           
           <div>
             
-            <button class="btn btn-success" (click)="likeButtonClick()">Like</button>
-            <button class="btn btn-danger" (click)="dislikeButtonClick()">Dislike</button>
-          
-           <button class="btn btn-danger" (click)="navigate(ad.id)"
-            >Details</button>
-
+        
         </div>
-          <a href="assets/img/portfolio/portfolio-2.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 3"><i class="bi bi-plus-circle-fill"></i></a>
-          <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bi bi-plus-circle-fill"></i></a>
+          <a [routerLink]="['/entreprise',e.id]" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 3"><i class="bi bi-plus-circle-fill"></i></a>
+        </div>
+          
+         
+          
         </div>
       </div>
 
-      <div class="col-lg-4 col-md-4 portfolio-item filter-web"  >
-      
-        <img src="assets/img/vermeg.jpg" class="img-fluid" alt="">
-        <div class="portfolio-info">
-          <h4>Vermed</h4>
-          <p >type1</p>
-          
-          <div>
-            
-        
-        </div>
-          <a [routerLink]="['/entreprise']" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 3"><i class="bi bi-plus-circle-fill"></i></a>
-          <a [routerLink]="['/entreprise']" class="details-link" title="More Details"><i class="bi bi-link"></i></a>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-4 portfolio-item filter-web"  >
-      
-        <img src="assets/img/vermeg.jpg" class="img-fluid" alt="">
-        <div class="portfolio-info">
-          <h4>Vermed</h4>
-          <p >type1</p>
-          
-          <div>
-            
-        
-        </div>
-          <a href="assets/img/portfolio/portfolio-2.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 3"><i class="bi bi-plus-circle-fill"></i></a>
-          <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bi bi-link"></i></a>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-4 portfolio-item filter-web"  >
-      
-        <img src="assets/img/vermeg.jpg" class="img-fluid" alt="">
-        <div class="portfolio-info">
-          <h4>Vermed</h4>
-          <p >type1</p>
-          
-          <div>
-            
-        
-        </div>
-          <a href="assets/img/portfolio/portfolio-2.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 3"><i class="bi bi-plus-circle-fill"></i></a>
-          <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bi bi-link"></i></a>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-4 portfolio-item filter-web"  >
-      
-        <img src="assets/img/vermeg.jpg" class="img-fluid" alt="">
-        <div class="portfolio-info">
-          <h4>Vermed</h4>
-          <p >type1</p>
-          
-          <div>
-            
-        
-        </div>
-          <a href="assets/img/portfolio/portfolio-2.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 3"><i class="bi bi-plus-circle-fill"></i></a>
-          <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bi bi-link"></i></a>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-4 portfolio-item filter-web"  >
-      
-        <img src="assets/img/vermeg.jpg" class="img-fluid" alt="">
-        <div class="portfolio-info">
-          <h4>Vermed</h4>
-          <p >type1</p>
-          
-          <div>
-            
-        
-        </div>
-          <a href="assets/img/portfolio/portfolio-2.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 3"><i class="bi bi-plus-circle-fill"></i></a>
-          <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bi bi-link"></i></a>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-4 portfolio-item filter-web"  >
-      
-        <img src="assets/img/vermeg.jpg" class="img-fluid" alt="">
-        <div class="portfolio-info">
-          <h4>Vermed</h4>
-          <p >type1</p>
-          
-          <div>
-        
-        </div>
-          <a href="assets/img/portfolio/portfolio-2.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 3"><i class="bi bi-plus-circle-fill"></i></a>
-          <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bi bi-link"></i></a>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-4 portfolio-item filter-web"  >
-      
-        <img src="assets/img/vermeg.jpg" class="img-fluid" alt="">
-        <div class="portfolio-info">
-          <h4>Vermed</h4>
-          <p >type1</p>
-          
-          <div>
-            
-        
-        </div>
-          <a href="assets/img/portfolio/portfolio-2.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 3"><i class="bi bi-plus-circle-fill"></i></a>
-          <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bi bi-link"></i></a>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-4 portfolio-item filter-web"  >
-      
-        <img src="assets/img/vermeg.jpg" class="img-fluid" alt="">
-        <div class="portfolio-info">
-          <h4>Vermed</h4>
-          <p >type1</p>
-          
-          <div>
-            
-        
-        </div>
-          <a href="assets/img/portfolio/portfolio-2.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 3"><i class="bi bi-plus-circle-fill"></i></a>
-          <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bi bi-link"></i></a>
-        </div>
-      </div>
+    
+
     </div>
-  </div>
 </section>

@@ -11,15 +11,15 @@ export class ChatServiceService {
 
   constructor(private http: HttpClient) { }
   getchat(id:any): Observable<any> {
-    return this.http.get<any>('http://localhost:8091/chat/getConversationMessages/'+id);
+    return this.http.get<any>('http://localhost:6060/chat/getConversationMessages/'+id);
   }
   getUserConversations(id:any): Observable<any> {
-    return this.http.get<any>('http://localhost:8091/chat/getActorConversation/'+id);
+    return this.http.get<any>('http://localhost:6060/chat/getActorConversation/'+id);
   }
 
   createConversation(actors:any): Observable<any> {
 
-    return this.http.post('http://localhost:8091/chat/generateConversationToActors', {
+    return this.http.post('http://localhost:6060/chat/generateConversationToActors', {
       idactors: actors.idactors,
     }, httpOptions);
 
@@ -28,7 +28,7 @@ export class ChatServiceService {
 
   sendMessage(sendMessageRequest:any): Observable<any> {
 
-    return this.http.post('http://localhost:8091/chat/sendMessage', sendMessageRequest, httpOptions);
+    return this.http.post('http://localhost:6060/chat/sendMessage', sendMessageRequest, httpOptions);
 
 
   }

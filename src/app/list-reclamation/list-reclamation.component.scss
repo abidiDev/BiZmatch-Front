@@ -1,28 +1,27 @@
 /* Dans votre fichier CSS */
 .status-button {
-    padding: 0; /* Supprimez la marge et le padding par défaut du bouton */
-    border: none; /* Supprimez la bordure du bouton */
-    color: white; /* Texte blanc */
-    border-radius: 4px; /* Coins arrondis */
-    font-weight: bold; /* Texte en gras */
-    cursor: pointer; /* Curseur de la main */
-  }
-  
-  .green {
-    background-color: green; /* Couleur verte */
-  }
-  
-  .blue {
-    background-color: blue; /* Couleur bleue */
-  }
-  /* Définir une hauteur maximale pour la cellule de description */
+  padding: 0; /* Supprimez la marge et le padding par défaut du bouton */
+  border: none; /* Supprimez la bordure du bouton */
+  color: white; /* Texte blanc */
+  border-radius: 4px; /* Coins arrondis */
+  font-weight: bold; /* Texte en gras */
+  cursor: pointer; /* Curseur de la main */
+}
+
+.green {
+  background-color: green; /* Couleur verte */
+}
+
+.blue {
+  background-color: blue; /* Couleur bleue */
+}
+/* Définir une hauteur maximale pour la cellule de description */
 .description-cell {
-    max-height: 100px; /* Ajustez la hauteur maximale en fonction de vos besoins */
-    overflow: auto; /* Ajoute une barre de défilement en cas de dépassement de la hauteur maximale */
-  }
-  
-  /* Définir une hauteur pour toutes les lignes du tableau */
-  table tbody tr {
-    height: 100px; /* Ajustez la hauteur en fonction de vos besoins */
-  }
-  
+  max-height: 100px; /* Ajustez la hauteur maximale en fonction de vos besoins */
+  overflow: auto; /* Ajoute une barre de défilement en cas de dépassement de la hauteur maximale */
+}
+
+/* Définir une hauteur pour toutes les lignes du tableau */
+table tbody tr {
+  height: 100px; /* Ajustez la hauteur en fonction de vos besoins */
+}

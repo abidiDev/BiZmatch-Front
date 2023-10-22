@@ -25,6 +25,9 @@ import { ForumComponent } from './BackOffice/forum/forum.component';
 import { ResetFormComponent } from './auth/reset-form/reset-form.component';
 
 import{AuthguardGuard} from'./shared/authguard.guard'
+import { MainCRMComponent } from './CRM/main-crm/main-crm.component';
+import { CrmClientsComponent } from './CRM/crm-clients/crm-clients.component';
+import { CRMContentComponent } from './CRM/crmcontent/crmcontent.component';
 import { NgModule } from '@angular/core';
 import { ReclamationComponent } from './reclamation/reclamation.component';
 import { ListReclamationComponent } from './list-reclamation/list-reclamation.component';
@@ -63,12 +66,12 @@ const routes: Routes = [
    
   },
   {
-    path: 'list-reclamation',
+    path: 'DashboardMainComponent/list-reclamation',
     component: ListReclamationComponent, 
    
   },
   {
-    path: 'rec',
+    path: 'DashboardMainComponent/rec',
     component: GestionReclamationComponent, 
    
   },
@@ -107,8 +110,8 @@ const routes: Routes = [
     
   ],// another child route component that the router renders
   },
-  { path: 'entreprise', component: MainEntrepriseComponent },
-  { path: 'DashboardMainComponent', component: DashboardMainComponent, canActivate:[AuthguardGuard],
+  { path: 'entreprise/:idE', component: MainEntrepriseComponent },
+  { path: 'DashboardMainComponent', component: DashboardMainComponent, 
   children :[
     { path: '',
     component: StatisticComponent, },
@@ -122,11 +125,28 @@ const routes: Routes = [
     component:ContratComponent, },
     { path: 'ForumComponent',
     component:ForumComponent, },
+    
    
      ]
     },
+
     { path: 'faq', component: DashboardMainComponent, canActivate:[AuthguardGuard] },
-    { path: 'reclamation', component: ReclamationComponent },
+    { path: 'DashboardMainComponent/reclamation', component: ReclamationComponent },
+
+    { path: 'MainCRMComponent',
+    component:MainCRMComponent,  children :[
+      { path: '',
+      component:CRMContentComponent, },
+      { path: 'CrmClientsComponent',
+      component:CrmClientsComponent, },
+      { path: 'CRMContentComponent',
+      component:CRMContentComponent, },
+      
+
+
+    ]},
+    
+
     { path: '404', component: NotFoundComponent },  // Wildcard route for a 404 page
     { path: '**', component: NotFoundComponent },  // Wildcard route for a 404 page
     
