@@ -26,6 +26,9 @@ import { ResetFormComponent } from './auth/reset-form/reset-form.component';
 
 import{AuthguardGuard} from'./shared/authguard.guard'
 import { NgModule } from '@angular/core';
+import { ReclamationComponent } from './reclamation/reclamation.component';
+import { ListReclamationComponent } from './list-reclamation/list-reclamation.component';
+import { GestionReclamationComponent } from './gestion-reclamation/gestion-reclamation.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'vitrine', pathMatch: 'full' }
@@ -59,6 +62,17 @@ const routes: Routes = [
     component: MainServiceComponent, 
    
   },
+  {
+    path: 'list-reclamation',
+    component: ListReclamationComponent, 
+   
+  },
+  {
+    path: 'rec',
+    component: GestionReclamationComponent, 
+   
+  },
+
   {
     path: 'MainEntrepriseListComponent',
     component: MainEntrepriseListComponent, 
@@ -111,10 +125,11 @@ const routes: Routes = [
    
      ]
     },
-
-    
+    { path: 'faq', component: DashboardMainComponent, canActivate:[AuthguardGuard] },
+    { path: 'reclamation', component: ReclamationComponent },
     { path: '404', component: NotFoundComponent },  // Wildcard route for a 404 page
     { path: '**', component: NotFoundComponent },  // Wildcard route for a 404 page
+    
   
 
 ];
