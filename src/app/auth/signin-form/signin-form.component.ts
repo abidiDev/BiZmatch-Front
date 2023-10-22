@@ -42,13 +42,14 @@ export class SigninFormComponent implements OnInit{
 }
 
   onSubmit(signInForm:NgForm): void { 
-console.log(signInForm.value);
     if(this.isLoggedIn){
     this.authService.login(signInForm.value).subscribe(
       (    data: { accessToken: string; }) => {
         console.log(data)
       this.tokenStorage.saveToken(data.accessToken);
       this.tokenStorage.saveUser(data);
+      sessionStorage.setItem("userID",this.tokenStorage.getUser().id)
+
       this.authService.User=data;
       this.roles = this.tokenStorage.getUser().roles;
       this.captcha = "";

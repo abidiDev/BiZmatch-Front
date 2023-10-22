@@ -18,7 +18,6 @@
           <div class="card">
             <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
 
-              <img src="data:image/png;base64,{{authService.User.image.image}}" alt="Profile" class="rounded-circle">
               <h2>{{authService.User.fullName}}</h2>
              
               <div class="social-links mt-2">
@@ -39,74 +38,26 @@
               <!-- Bordered Tabs -->
               <ul class="nav nav-tabs nav-tabs-bordered" role="tablist">
 
+            
                 <li class="nav-item" role="presentation">
-                  <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview" aria-selected="true" role="tab">Overview</button>
+                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit" aria-selected="false" role="tab" tabindex="-1">Profil Entreprise</button>
                 </li>
 
                 <li class="nav-item" role="presentation">
-                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit" aria-selected="false" role="tab" tabindex="-1">Edit Profile</button>
+                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-settings" aria-selected="false" role="tab" tabindex="-1">Service</button>
                 </li>
 
-                <li class="nav-item" role="presentation">
-                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-settings" aria-selected="false" role="tab" tabindex="-1">Settings</button>
-                </li>
-
-                <li class="nav-item" role="presentation">
-                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-change-password" aria-selected="false" role="tab" tabindex="-1">Change Password</button>
-                </li>
+             
 
               </ul>
               <div class="tab-content pt-2">
 
-                <div class="tab-pane fade profile-overview active show" id="profile-overview" role="tabpanel">
-                  <h5 class="card-title">About</h5>
-                  <p class="small fst-italic">Sunt est soluta temporibus accusantium neque nam maiores cumque temporibus. Tempora libero non est unde veniam est qui dolor. Ut sunt iure rerum quae quisquam autem eveniet perspiciatis odit. Fuga sequi sed ea saepe at unde.</p>
-
-                  <h5 class="card-title">Profile Details</h5>
-
-                  <div class="row">
-                    <div class="col-lg-3 col-md-4 label ">Full Name</div>
-                    <div class="col-lg-9 col-md-8">{{authService.User.fullName}}</div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Email</div>
-                    <div class="col-lg-9 col-md-8">{{authService.User.email}}</div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Adress</div>
-                    <div class="col-lg-9 col-md-8">{{authService.User.address}}</div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Birth Date</div>
-                    <div class="col-lg-9 col-md-8">{{authService.User.birthdate}}</div>
-                  </div>
-
                 
-
-                  <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Phone</div>
-                    <div class="col-lg-9 col-md-8">(216) {{authService.User.phone}}</div>
-                  </div>
-
-                 
-                </div>
-
                 <div class="tab-pane fade profile-edit pt-3" id="profile-edit" role="tabpanel">
 
                   <!-- Profile Edit Form -->
-                  <form #updateProfileForm="ngForm" (ngSubmit)="onSubmit(updateProfileForm)">
-                    <div class="row mb-3">
-                      <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Profile Image</label>
-                      <div class="col-md-8 col-lg-9">
-                        <div class="pt-2">
-                          <button  class="btn btn-primary btn-sm" ><input type="file" value="select" #selectFile (change)="OnFileSelected($event)" class="file" ><i class="bi bi-upload"></i></button>
-                          <a href="#" class="btn btn-danger btn-sm" title="Remove my profile image"><i class="bi bi-trash"></i></a>
-                        </div>
-                      </div>
-                    </div>
+                  <form>
+                   
                     <div class="row mb-3">
                     
                       <div class="col-md-8 col-lg-9">
@@ -115,71 +66,51 @@
                     </div>
 
                     <div class="row mb-3">
-                      <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Full Name</label>
+                      <label for="fullName" class="col-md-4 col-lg-3 col-form-label">nom</label>
                       <div class="col-md-8 col-lg-9">
-                        <input  type="text" class="form-control" id="fullName" name="fullName"   [(ngModel)]="fullName">
+                        <input  type="text" class="form-control" id="nom" name="nom"   [(ngModel)]="nom">
                       </div>
                     </div>
 
                     
 
                     <div class="row mb-3">
-                      <label for="company" class="col-md-4 col-lg-3 col-form-label">User Name</label>
+                      <label for="company" class="col-md-4 col-lg-3 col-form-label">description</label>
                       <div class="col-md-8 col-lg-9">
-                        <input  type="text" class="form-control" name="username"  [(ngModel)]="username">
+                        <input  type="text" class="form-control" name="description"  [(ngModel)]="description">
                       </div>
                     </div>
 
                     <div class="row mb-3">
-                      <label for="company" class="col-md-4 col-lg-3 col-form-label">Birth Date</label>
+                      <label for="company" class="col-md-4 col-lg-3 col-form-label">Date de creéation</label>
                       <div class="col-md-8 col-lg-9">
-                        <input  type="date" class="form-control" name="birthdate"  [(ngModel)]="birthdate">
+                        <input  type="date" class="form-control" name="creationDate"  [(ngModel)]="creationDate">
                       </div>
                     </div>
                     <div class="row mb-3">
-                      <label for="Job" class="col-md-4 col-lg-3 col-form-label">email</label>
+                      <label for="Job" class="col-md-4 col-lg-3 col-form-label">Nombre d'employés</label>
                       <div class="col-md-8 col-lg-9">
-                        <input type="email" class="form-control" name="email"  [(ngModel)]="email">
+                        <input type="number" class="form-control" name="employeeNBR"  [(ngModel)]="employeeNBR">
                       </div>
                     </div>
 
                     <div class="row mb-3">
-                      <label for="Country" class="col-md-4 col-lg-3 col-form-label">Phone</label>
+                      <label for="Country" class="col-md-4 col-lg-3 col-form-label">Revenues annuelles</label>
                       <div class="col-md-8 col-lg-9">
-                        <input type="text" class="form-control" name="phone"[(ngModel)]="phone" >
+                        <input type="number" class="form-control" name="income"[(ngModel)]="income" >
                       </div>
                     </div>
+
 
                     <div class="row mb-3">
-                      <label for="Address" class="col-md-4 col-lg-3 col-form-label">Address</label>
+                      <label for="Address" class="col-md-4 col-lg-3 col-form-label">Secteur</label>
                       <div class="col-md-8 col-lg-9">
-                        <input  type="text" class="form-control" name="address"  [(ngModel)]="address">
+                        <input  type="text" class="form-control" name="secteur"  [(ngModel)]="secteur">
                       </div>
                     </div>
-
+                    
                  
 
-                    <div class="row mb-3" *ngIf="valid">
-                      <label for="Address" class="col-md-4 col-lg-3 col-form-label"></label>
-                      <div class="col-md-8 col-lg-9">
-                        <div class="alert alert-success alert-dismissible fade show" role="alert">
-                          The user was updated successfully
-                          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>                      </div>
-                    </div>
-
-                  
-                    <div class="row mb-3" *ngIf="error">
-                      <label for="Address" class="col-md-4 col-lg-3 col-form-label"></label>
-                      <div class="col-md-8 col-lg-9">
-                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                          Something went wrong please verify
-                          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>                      </div>
-                    </div>
-                    <div class="text-center">
-                      <button type="submit" class="btn btn-primary">Save Changes</button>
-                    </div>
                       
                     
                   </form><!-- End Profile Edit Form -->
@@ -188,77 +119,65 @@
 
                 <div class="tab-pane fade pt-3" id="profile-settings" role="tabpanel">
 
-                  <!-- Settings Form -->
-                  <form>
-
+                  <!-- Profile Edit Form -->
+                  <form >
+                  
                     <div class="row mb-3">
-                      <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Email Notifications</label>
+                    
                       <div class="col-md-8 col-lg-9">
-                        <div class="form-check">
-                          <input class="form-check-input" type="checkbox" id="changesMade" checked="">
-                          <label class="form-check-label" for="changesMade">
-                            Changes made to your account
-                          </label>
-                        </div>
-                        <div class="form-check">
-                          <input class="form-check-input" type="checkbox" id="newProducts" checked="">
-                          <label class="form-check-label" for="newProducts">
-                            Information on new products and services
-                          </label>
-                        </div>
-                        <div class="form-check">
-                          <input class="form-check-input" type="checkbox" id="proOffers">
-                          <label class="form-check-label" for="proOffers">
-                            Marketing and promo offers
-                          </label>
-                        </div>
-                        <div class="form-check">
-                          <input class="form-check-input" type="checkbox" id="securityNotify" checked="" disabled="">
-                          <label class="form-check-label" for="securityNotify">
-                            Security alerts
-                          </label>
-                        </div>
+                        <input  type="text" class="form-control" id="fullName" value={{authService.User.id}}  name="id" hidden  [(ngModel)]="id">
                       </div>
                     </div>
 
-                    <div class="text-center">
-                      <button type="submit" class="btn btn-primary">Save Changes</button>
+                    <div class="row mb-3">
+                      <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Nom</label>
+                      <div class="col-md-8 col-lg-9">
+                        <input  type="text" class="form-control" id="nomS" name="nomS"   [(ngModel)]="nomS">
+                      </div>
                     </div>
-                  </form><!-- End settings Form -->
+
+                  
+                    <div class="row mb-3">
+                      <label for="company" class="col-md-4 col-lg-3 col-form-label">description</label>
+                      <div class="col-md-8 col-lg-9">
+                        <input  type="text" class="form-control" name="descriptionS"  [(ngModel)]="descriptionS">
+                      </div>
+                    </div>
+                 
+                    <div class="row mb-3">
+                      <label for="company" class="col-md-4 col-lg-3 col-form-label">Remise</label>
+                      <div class="col-md-8 col-lg-9">
+                        <input  type="number" class="form-control" name="discount"  [(ngModel)]="discount">
+                      </div>
+                    </div>
+
+                    <div class="row mb-3">
+                      <label for="company" class="col-md-4 col-lg-3 col-form-label">Qualité de service</label>
+                      <div class="col-md-8 col-lg-9">
+                        <input  type="text" class="form-control" name="servicequality"  [(ngModel)]="servicequality">
+                      </div>
+                    </div>
+
+                    <div class="row mb-3" *ngIf="valid">
+                      <label for="Address" class="col-md-4 col-lg-3 col-form-label"></label>
+                      <div class="col-md-8 col-lg-9">
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                          The entreprise was updated successfully
+                          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>                      </div>
+                    </div>
+
+                  
+                    <div class="text-center">
+                      <button type="submit" class="btn btn-primary" (click)="onSubmit()">create</button>
+                    </div>
+                      
+                    
+                  </form><!-- End Profile Edit Form -->
 
                 </div>
 
-                <div class="tab-pane fade pt-3" id="profile-change-password" role="tabpanel">
-                  <!-- Change Password Form -->
-                  <form>
-
-                    <div class="row mb-3">
-                      <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">Current Password</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="password" type="password" class="form-control" id="currentPassword">
-                      </div>
-                    </div>
-
-                    <div class="row mb-3">
-                      <label for="newPassword" class="col-md-4 col-lg-3 col-form-label">New Password</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="newpassword" type="password" class="form-control" id="newPassword">
-                      </div>
-                    </div>
-
-                    <div class="row mb-3">
-                      <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">Re-enter New Password</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="renewpassword" type="password" class="form-control" id="renewPassword">
-                      </div>
-                    </div>
-
-                    <div class="text-center">
-                      <button type="submit" class="btn btn-primary">Change Password</button>
-                    </div>
-                  </form><!-- End Change Password Form -->
-
-                </div>
+               
 
               </div><!-- End Bordered Tabs -->
 
@@ -268,6 +187,8 @@
         </div>
       </div>
 
+
+       
 
     </section>
 

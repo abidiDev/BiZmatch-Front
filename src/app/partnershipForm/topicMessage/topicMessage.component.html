@@ -12,9 +12,10 @@
                         <div _ngcontent-nwo-c24="" class="row">
                           <div _ngcontent-nwo-c24="" class="col form-group">
                       
-                          <textarea  id="w3review" name="w3review" rows="4" cols="150">
+                          <textarea  id="w3review" name="w3review" rows="4" cols="150" name="message" required [(ngModel)]="message">
                             At w3schools.com you will learn how to make a website. They offer free tutorials in all web development technologies.
                             </textarea>
+
                         </div>
                       </div>
 
@@ -22,9 +23,9 @@
 
                        
 
-                      <button type="button" class="btn mb-md-0 mb-2 btn-primary" [routerLink]="['/entreprise']" >Previous</button>    
+                      <button type="button" class="btn mb-md-0 mb-2 btn-primary" [routerLink]="['/entreprise']" ><i class="bi bi-arrow-left"></i></button>    
 
-                      <button type="button" class="btn mb-md-0 mb-2 btn-primary" [routerLink]="['/MainReFormComponent/meetingComponent']" (click)= "saveLocation(signInForm)" >next Step</button>    
+                      <button type="button" class="btn mb-md-0 mb-2 btn-primary" (click)="addPartnershipRequest()"><i class="bi bi-arrow-right"></i></button>    
 
 
       

@@ -96,7 +96,7 @@ const routes: Routes = [
     
   ],// another child route component that the router renders
   },
-  { path: 'entreprise', component: MainEntrepriseComponent },
+  { path: 'entreprise/:idE', component: MainEntrepriseComponent },
   { path: 'DashboardMainComponent', component: DashboardMainComponent, 
   children :[
     { path: '',

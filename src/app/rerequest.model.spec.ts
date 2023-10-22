@@ -1,7 +1,7 @@
-import { RErequest } from './rerequest.model';
+import { PartnershipRe } from './PartnershipRe.model';
 
 describe('RErequest', () => {
   it('should create an instance', () => {
-    expect(new RErequest()).toBeTruthy();
+    expect(new PartnershipRe()).toBeTruthy();
   });
 });

@@ -17,7 +17,7 @@ export class AuthServiceService {
   constructor(private http: HttpClient) { }
 
   getUsers(): Observable<any[]>{
-    return this.http.get<any[]>(`http://localhost:8091/CRUD/getAllActor`);
+    return this.http.get<any[]>(`http://localhost:6060/CRUD/getAllActor`);
   }
 
   login(credentials: { username: any; password: any; }): Observable<any> {
@@ -57,20 +57,20 @@ export class AuthServiceService {
     window.sessionStorage.clear();
   }
   getUserByID(id: any): Observable<any> {
-    return this.http.get<any>('http://localhost:8091/CRUD/getActorById/'+id);
+    return this.http.get<any>('http://localhost:6060/CRUD/getActorById/'+id);
     
   }
 
   updateUser(user: FormData): Observable<any> {
-    return this.http.put<any>('http://localhost:8091/CRUD/updateActor/', user);
+    return this.http.put<any>('http://localhost:6060/CRUD/updateActor/', user);
     
   }
 
   update2User(user: FormData): Observable<any> {
-    return this.http.post<any>('http://localhost:8091/CRUD/addActor/', user);
+    return this.http.post<any>('http://localhost:6060/CRUD/addActor/', user);
     
   }
   deleteUser(id:any): Observable<any> {
-    return this.http.delete<any>('http://localhost:8091/CRUD/deleteActor/'+id);
+    return this.http.delete<any>('http://localhost:6060/CRUD/deleteActor/'+id);
   }
 }

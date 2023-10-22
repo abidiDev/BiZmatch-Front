@@ -23,7 +23,7 @@ import { ForgedPwdFormComponent } from './auth/forged-pwd-form/forged-pwd-form.c
 import { FormsModule , ReactiveFormsModule } from '@angular/forms';
 import { MainServiceComponent } from './services/main-service/main-service.component';
 import { ServiceInfoComponent } from './services/service-info/service-info.component';
-import { PartnershiptypeComponent } from './partnership/partnershiptype/partnershiptype.component';
+import { PartnershiptypeComponent } from './partnership/partnershipType/partnershiptype.component';
 import { PartnershipTypeMainComponent} from './partnership/main-partnershipType/partnershipType-main.component';
 
 import { FormCardComponent } from './partnershipForm/form-card/form-card.component';
@@ -100,7 +100,6 @@ import { CrmClientsComponent } from './CRM/crm-clients/crm-clients.component';
     DashboardMainComponent,
     StatisticComponent,
     DatatableComponent,
-    RealestateInfoComponent,
     ContratComponent,
     ForumComponent,
     ResetFormComponent,

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ServiceRealestateService } from 'src/app/ServicesBack/service-realestate.service';
+
 import { CalendarOptions } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 
@@ -26,7 +26,7 @@ export class meetingComponent implements OnInit {
   description: string = '' ; 
   socialService: string= '' ; 
  
-  constructor(private sre: ServiceRealestateService){}
+  constructor(){}
 
   toggleInput() {
     this.showInput = !this.showInput;
@@ -37,12 +37,7 @@ export class meetingComponent implements OnInit {
   }
   onSubmit(signInForm:NgForm): void { console.log(signInForm.value) }
  
-  saveSocService(signInForm:NgForm) 
 
-  { 
-    this.sre.realestateRequest._socialservices=signInForm.value
-console.log( this.sre.realestateRequest);
-}
 
 }
 

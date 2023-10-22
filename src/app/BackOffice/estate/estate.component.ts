@@ -3,7 +3,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { EstateDataSource, EstateItem } from './estate-datasource';
-import { ServiceRealestateService } from 'src/app/ServicesBack/service-realestate.service';
+
 
 @Component({
   selector: 'app-estate',
@@ -17,7 +17,7 @@ export class EstateComponent implements AfterViewInit {
  
 
   
-  constructor(private sre : ServiceRealestateService) {
+  constructor() {
   }
 
   ngAfterViewInit(): void {
@@ -32,15 +32,7 @@ export class EstateComponent implements AfterViewInit {
  ,'nbr_appartment' ,'equiped','nbr_office','garden','pool','capacity','legal_status'];
 
   ngOnInit(): void {
-   this.getAll(); 
  }
 
- dataSource: any;
-  getAll(){
-    this.sre.GetAll().subscribe((response: any )=> {
-      this.estates = response;
-      this.dataSource= new MatTableDataSource
-    console.log(response)
-    });
-  }
+ 
 }

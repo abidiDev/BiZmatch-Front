@@ -5,7 +5,9 @@ import { NgForm } from '@angular/forms';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort, Sort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { Observable } from 'rxjs';
 import { AuthServiceService } from 'src/app/serviceBack/auth-service.service';
+import { CrmServiceService } from 'src/app/serviceBack/crm-service.service';
 
 @Component({
   selector: 'app-datatable',
@@ -13,24 +15,75 @@ import { AuthServiceService } from 'src/app/serviceBack/auth-service.service';
   styleUrls: ['./datatable.component.scss']
 })
 export class DatatableComponent implements OnInit{
+  Partnership!:any[];
   Users!:any[];
-  constructor(private httpClient: HttpClient, public authService: AuthServiceService) { }
-  ngOnInit(): void {
-    this.getAllUsers();
+  id:any;
+  idE:any;
+  constructor(private httpClient: HttpClient, public crmService: CrmServiceService, public authService: AuthServiceService) { }
+ 
+
+    async ngOnInit(): Promise<void> {
+      console.log(this.authService.User);
+      this.id = this.authService.User.id;
+      console.log(this.id);
+  
+      this.Partnership = await this.getPartnerships(this.id);
+  
+      console.log(this.Partnership[0].id);
     }
-    delete(id:any){
-      console.log(id);
-       this.authService.deleteUser(id).subscribe((response)=>{
-        this.Users=this.getAllUsers();
+  
+    getPartnerships(id: any): Promise<any> {
+      return new Promise((resolve, reject) => {
+        this.crmService.getEntrepriseByUser(id).subscribe((response: any) => {
+          this.idE=response[0].id;
+  
+          this.crmService.getPartnershipByEntreprise(response[0].id).subscribe((partnershipResponse: any) => {
+            this.Partnership = partnershipResponse;
+            console.log(this.Partnership);
+            resolve(this.Partnership); // Resolve the Promise with the data
+          }, error => {
+            reject(error); // Reject the Promise in case of an error
+          });
+        });
+      });
+    }
+
+    getBackgroundColor(Pindicator: any, status:any): string {
+      // Define your conditions and return the desired background color
+      console.log(Pindicator,status)
+      if (Pindicator === "Requested" && status=="NEW") {
+        return 'yellow-bg'; // Change to your preferred color
+      } else if (Pindicator === "ToProvide" && status=="NEW") {
+
+        return 'green-bg'; // Change to your preferred color
+      } else {
+
+        return ''; // Default background color
+      }
+    }
+  
+  
+    async delete(id:any):Promise<void> {
+      console.log(id)
+      console.log(this.idE)
+       this.crmService.deletePartnership(id,this.idE).subscribe((response)=>{
       
       }) 
+      this.Partnership = await this.getPartnerships(this.id);
 
     }
+  
+    async accept(id:any):Promise<void> {
+      console.log(id)
+      console.log(this.idE)
+       this.crmService.acceptPartnership(id,this.idE).subscribe((response)=>{
+      
+      }) 
+      this.Partnership = await this.getPartnerships(this.id);
 
-    getAllUsers():any[]{
-      this.authService.getUsers().subscribe((response)=>{this.Users=response})
-      return this.Users;
     }
+  
+  
   uploadedImage!: File;
 dbImage: any;
 postResponse: any;
@@ -72,7 +125,6 @@ viewImage() {
 
 
 /**************************************update*********************************************/
-id:any;
 fullName:any;
 email:any;
 phone:any;

@@ -34,7 +34,7 @@ constructor( private router: Router, private route:ActivatedRoute,public authSer
 
     this.cr.idactors.push(JSON.parse(this.idUser).id);
 
-        
+     /*   
     this.chatS.getUserConversations(JSON.parse(this.idUser).id ).subscribe((response: any )=> {
       this.conversations=response;
        console.log(response);
@@ -42,13 +42,15 @@ constructor( private router: Router, private route:ActivatedRoute,public authSer
  
      });
      this.authService.getUsers().subscribe((response)=>{this.Users=response})
-
+/*
      setInterval(() => {
       this.showmsg(this.idConv);
       this.div = document.getElementById("parent-div");
       
-    }, 1000);  
+      
+    }, 1000);  */
  }
+ /*
  show(){
   console.log(this.shown);
 this.shown=!this.shown
@@ -110,7 +112,7 @@ if(messageForm.value.message2!=null){
   });
 }
 
-}
+}*/
  signOut(){
   this.authService.signOut();
   this.router.navigate(['/vitrine'])
