@@ -3,9 +3,14 @@
 <app-dashboard-header></app-dashboard-header>
   
 <!-- ======= Sidebar ======= -->
-<app-dashboard-side-bar></app-dashboard-side-bar>
-  
-<!-- ======= Sidebar ======= -->
+
+<app-dashboard-side-bar *ngIf="userId !== 3"></app-dashboard-side-bar>
+<app-side-bar *ngIf="userId == 3"></app-side-bar>
+
+
+
+<!-- app.component.html -->
+<br><br><br>
 
 <br><br><br><br><br><br>
 
