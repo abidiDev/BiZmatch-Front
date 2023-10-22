@@ -47,11 +47,7 @@ import { ContratComponent } from './BackOffice/contrat/contrat.component';
 import { ForumComponent } from './BackOffice/forum/forum.component';
 import { MdbFormsModule } from 'mdb-angular-ui-kit/forms';
 import { AuthServiceService } from './serviceBack/auth-service.service';
-import {
-  FacebookLoginProvider,
-  SocialLoginModule,
-  SocialAuthServiceConfig,
-} from 'angularx-social-login';
+
 import { ResetFormComponent } from './auth/reset-form/reset-form.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RecaptchaModule } from 'ng-recaptcha';
@@ -115,29 +111,15 @@ import { CrmClientsComponent } from './CRM/crm-clients/crm-clients.component';
     BrowserModule,
     HttpClientModule,
     HttpClientModule,
-    SocialLoginModule,
     BrowserAnimationsModule,
     MdbFormsModule,
     RecaptchaModule,
     FullCalendarModule, // register FullCalendar with your app,
-    DragDropModule,
+    
 
 
   ],
-  providers: [AuthServiceService,
-    {
-      provide: 'SocialAuthServiceConfig',
-      useValue: {
-        autoLogin: false,
-        providers: [
-          {
-            id: FacebookLoginProvider.PROVIDER_ID,
-            provider: new FacebookLoginProvider('485696880209784'),
-          },
-        ],
-      } as SocialAuthServiceConfig,
-    },
-  ],
+  providers: [AuthServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
