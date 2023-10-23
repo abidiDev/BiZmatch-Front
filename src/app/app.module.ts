@@ -35,7 +35,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { MainEntrepriseListComponent } from './EntrepriseList/main-entrepriseList/main-entrepriseList.component';
 import { EntrepriseListComponent } from './EntrepriseList/entreprise-List/entreprise-list.component';
 import { MainDashboardProfilComponent } from './BackOffice/Dashboard_profil/main-dashboard-profil/main-dashboard-profil.component';
-
+import { AnnonceListComponent } from  './AnnonceList/annonce-List/annonce-list.component';
+import { MainAnnonceListComponent } from  './AnnonceList/main-annonceList/main-annonceList.component';
 import { DashboardHeaderComponent } from './BackOffice/dashboard-header/dashboard-header.component';
 import { DashboardSideBarComponent } from './BackOffice/dashboard-side-bar/dashboard-side-bar.component';
 import { DashboardFooterComponent } from './BackOffice/dashboard-footer/dashboard-footer.component';
@@ -77,11 +78,12 @@ import { CrmClientsComponent } from './CRM/crm-clients/crm-clients.component';
     SigninFormComponent,
     SignupFormComponent,
     ForgedPwdFormComponent,
-  
+    AnnonceListComponent,
     MainServiceComponent,
     ServiceInfoComponent,
     PartnershiptypeComponent,
     PartnershipTypeMainComponent,
+    MainAnnonceListComponent,
     MainReFormComponent,
     validationComponent,
     FormCardComponent,
