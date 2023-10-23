@@ -64,8 +64,7 @@ export class DatatableComponent implements OnInit{
   
   
     async delete(id:any):Promise<void> {
-      console.log(id)
-      console.log(this.idE)
+      
        this.crmService.deletePartnership(id,this.idE).subscribe((response)=>{
       
       }) 

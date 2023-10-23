@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ClientR } from 'src/app/Model/client-r.model';
+import { CrmServiceService } from 'src/app/serviceBack/crm-service.service';
 
 declare var window: any;
 
@@ -10,10 +12,16 @@ declare var window: any;
 })
 export class CRMContentComponent implements OnInit{
   formModal:any
+  client: any | undefined;
+  phone:any;
+  email:any;
+  fullname:any;
   ngOnInit(): void {
     this.formModal = new window.bootstrap.Modal(
       document.getElementById('exampleModal')
     );
+
+    this.getAll();
 
   }
 
@@ -21,65 +29,72 @@ export class CRMContentComponent implements OnInit{
     this.formModal.show();
 
   }
-  constructor(private router: Router){
+  constructor(private router: Router, private crmS: CrmServiceService){
   }
 
-  columns = [
-    { id: 'Column 1', content: 'Content 1' },
-    { id: 'Column 2', content: 'Content 2' },
-    { id: 'Column 3', content: 'Content 3' }
-  ];
-
-  columnss = [
-    { id: 'Column 11', content: 'Content 1' },
-    { id: 'Column 22', content: 'Content 2' },
-    { id: 'Column 33', content: 'Content 3' }
-  ];
-  columnsss = [
-    { id: 'Column 111', content: 'Content 1' },
-    { id: 'Column 222', content: 'Content 2' },
-    { id: 'Column 333', content: 'Content 3' }
-  ];
-
-  clients=[this.columns,this.columnss, this.columnsss]
-
-   // Fonction pour déplacer un élément en avant
-   deplacerElementAvant(category:any,id:any) {
-    // Sélectionnez l'élément que vous souhaitez déplacer (par exemple, le premier élément ici)
-    const elementADeplacer = this.clients[category].find((element) => element?.id === id);
-
-    if (elementADeplacer) {
-      // Remove the found element from 'columns'
-      const index = this.clients[category].indexOf(elementADeplacer);
-      if (index > -1) {
-        this.clients[category].splice(index, 1);
-      }
-  
-      // Add the found element to 'columnss'
-      this.clients[category+1].push(elementADeplacer);
-      console.log(this.columnss);
-    }
-
-  }
  
+  getAll(){
+    const ide=sessionStorage.getItem("entrepriseID")
+    this.crmS.Allrelations(Number(ide)).subscribe((response: any )=> {
+      this.client=response;
+      console.log(this.client)
 
-  
-   // Fonction pour déplacer un élément en avant
-   deplacerElementArriere(category:any,id:any) {
-    // Sélectionnez l'élément que vous souhaitez déplacer (par exemple, le premier élément ici)
-    const elementADeplacer = this.clients[category].find((element) => element?.id === id);
-
-    if (elementADeplacer) {
-      // Remove the found element from 'columns'
-      const index = this.clients[category].indexOf(elementADeplacer);
-      if (index > -1) {
-        this.clients[category].splice(index, 1);
-      }
-  
-      // Add the found element to 'columnss'
-      this.clients[category-1].push(elementADeplacer);
-      console.log(this.columnss);
-    }
-
+    });
   }
-}
+
+  changeRelationStatusTop(id:any, idclient:any, status:any){
+    console.log()
+    const top=new ClientR();
+    top._id=id;
+    const ide=sessionStorage.getItem("entrepriseID");
+    top._idEntreprise=Number(ide);
+    top._idclient=idclient;
+    top._status=status;
+    console.log(top);
+
+    this.crmS.changeRelationStatusTop(top).subscribe((response: any )=> {
+      this.getAll();
+
+
+    });
+  }
+
+  changeRelationStatusDown(id:any, idclient:any, status:any){
+    const donw=new ClientR();
+    donw._id=id;
+    const ide=sessionStorage.getItem("entrepriseID");
+    donw._idEntreprise=Number(ide);
+    donw._idclient=idclient;
+    donw._status=status;
+    console.log(donw);
+        this.crmS.changeRelationStatusDown(donw).subscribe((response: any )=> {
+      this.client=response;
+      this.getAll();
+
+
+    });
+  }
+
+  onSubmit(clientForm:any)
+{
+  console.log(clientForm.value)
+  this.crmS.addClient(clientForm.value).subscribe(
+    data => {
+      this.getAll()
+      setTimeout(() => {
+   const client=new ClientR();
+    const ide=sessionStorage.getItem("entrepriseID");
+    client._idEntreprise=Number(ide);
+    client._idclient=data.id;
+    client._status='NEW';
+    console.log(client)
+      this.crmS.createRelation(client).subscribe(
+        data => {
+          this.getAll()
+        });    }, 2000);
+   
+    },
+  
+  );
+
+}}

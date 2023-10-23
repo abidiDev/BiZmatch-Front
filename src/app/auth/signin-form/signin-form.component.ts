@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { FacebookLoginProvider, SocialAuthService } from 'angularx-social-login';
 import { AuthServiceService } from 'src/app/serviceBack/auth-service.service';
+import { CrmServiceService } from 'src/app/serviceBack/crm-service.service';
 import { TokenStorageService } from 'src/app/serviceBack/token-storage.service';
 
 
@@ -22,7 +23,10 @@ export class SigninFormComponent implements OnInit{
   errorMessage = '';
   roles: string[] = [];
   captcha:String;
-  
+
+  entreprise!:any[];
+
+
 
   ngOnInit(): void {
     
@@ -32,9 +36,13 @@ export class SigninFormComponent implements OnInit{
     }
     
   }
+
   
-  constructor( private router:Router,public authService: AuthServiceService,  private tokenStorage: TokenStorageService, private socialAuthService: SocialAuthService
-    ){
+
+
+  constructor( private crmS: CrmServiceService ,public  router:Router,public authService: AuthServiceService,  private tokenStorage: TokenStorageService, private socialAuthService: SocialAuthService
+     ){
+
       this.captcha = "ok";
 
   }
@@ -52,6 +60,14 @@ export class SigninFormComponent implements OnInit{
       this.tokenStorage.saveToken(data.accessToken);
       this.tokenStorage.saveUser(data);
       sessionStorage.setItem("userID",this.tokenStorage.getUser().id)
+      const ide= sessionStorage.getItem("userID");
+
+      this.crmS.getEntrepriseByUser(Number(ide)).subscribe(( data:any) => {
+       
+        this.entreprise=data;
+        sessionStorage.setItem("entrepriseID",data[0].id)
+      });
+      
 
       this.authService.User=data;
       this.roles = this.tokenStorage.getUser().roles;

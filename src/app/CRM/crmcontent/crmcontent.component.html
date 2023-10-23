@@ -6,50 +6,47 @@
       
       <div class="modal-body">
         <section id="about-us" class="about-us">
-          <div class="container">
-    
-            <div class="row no-gutters">
-              <div class="image col-xl-5 d-flex align-items-stretch justify-content-center justify-content-lg-start aos-init aos-animate" data-aos="fade-right"></div>
-              <div class="col-xl-7 ps-0 ps-lg-5 pe-lg-1 d-flex align-items-stretch">
-                <div class="content d-flex flex-column justify-content-center">
-                  <h3 data-aos="fade-up" class="aos-init aos-animate">Some proposition for you</h3>
-                  <p data-aos="fade-up" class="aos-init aos-animate">
-                    Our system is designed to help you in all steps,
-                    You can find Our suggestion to move this client to the next step based on its requirements and your products
-                  </p>
-                  <div class="row">
-                    <div class="col-md-6 icon-box aos-init aos-animate" data-aos="fade-up">
-                      <i class="bx bx-receipt"></i>
-                      <h4>Marketing Approch</h4>
-                      <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip</p>
-                    </div>
-                    <div class="col-md-6 icon-box aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
-                      <i class="bx bx-cube-alt"></i>
-                      <h4>Ullamco laboris nisi</h4>
-                      <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt</p>
-                    </div>
-                    <div class="col-md-6 icon-box aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
-                      <i class="bx bx-images"></i>
-                      <h4>Products</h4>
-                      <p>Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis facere</p>
-                    </div>
-                    <div class="col-md-6 icon-box aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">
-                      <i class="bx bx-shield"></i>
-                      <h4>Discounts</h4>
-                      <p>Expedita veritatis consequuntur nihil tempore laudantium vitae denat pacta</p>
-                    </div>
-                  </div>
-                </div><!-- End .content-->
-              </div>
-            </div>
-    
-          </div>
+          <form  #clientForm="ngForm" (ngSubmit)="onSubmit(clientForm)">
+              
+            <mdb-form-control>
+              <input mdbInput type="text" id="form1" class="form-control" name="fullname" required [(ngModel)]="fullname" />
+              <label mdbLabel class="form-label" for="form1">Fullrname</label>
+
+            </mdb-form-control>
+<hr>
+            <mdb-form-control>
+              <input mdbInput type="email" id="form1" class="form-control" name="email" required [(ngModel)]="email" />
+              <label mdbLabel class="form-label" for="form1">Email</label>
+
+            </mdb-form-control>
+            <span class="errmsg" style="color: red;" *ngIf="clientForm.control.controls['email'].touched && clientForm.control.controls['email'].invalid">* email is required</span>
+<hr>
+           
+
+            <mdb-form-control>
+              <input mdbInput type="tel" id="form1" class="form-control" name="phone" required [(ngModel)]="phone" />
+              <label mdbLabel class="form-label" for="form1">Phone</label>
+
+            </mdb-form-control>
+
+<hr>
+
+       
+            
+          
+
+         
+            <button type="submit" class="btn mb-md-0 mb-2 btn-quarternary " >Add</button>     
+            
+            
+          </form>
         </section>
       </div>
      
     </div>
   </div>
 </div>
+<button href="#" class="btndinfo" (click)="openFormModal()"><i class="bi bi-plus-circle-fill"></i></button>
 
 <section id="pricing" class="pricing">
   <div class="container">
@@ -62,19 +59,20 @@
       <div class="col order-first">
         <span><i class="bi bi-emoji-frown-fill t i1"></i><h1>new</h1></span>
         
-        <div *ngFor="let c1 of clients[0]">
-        <div class="box aos-init aos-animate c1 "  data-aos="fade-right" >
+        <div *ngFor="let c1 of client" >
+        <div class="box aos-init aos-animate c1 " *ngIf="c1.estatus === 'NEW'"  data-aos="fade-right" >
           <div class="btn-wrap">
-            <button href="#" class="btndinfo" (click)="openFormModal()"><i class="bi bi-star-fill"></i></button>
 
           </div>
           <h3>new</h3>
           <ul>
-            <li>{{c1.id}}</li>
+            <li>{{c1.actor.fullname}}</li>
+            <li>{{c1.actor.email}}</li>
+            <li>{{c1.actor.phone}}</li>
            
           </ul>
           <div class="btn-wrap">
-            <button href="#" class="btntop" (click)="deplacerElementAvant(0,c1.id)"><i class="bi bi-arrow-up-right"></i></button>
+            <button href="#" class="btntop" (click)="changeRelationStatusTop(c1.id, c1.actor.id, c1.estatus)"><i class="bi bi-arrow-up-right"></i></button>
           </div>
         </div>
 
@@ -89,19 +87,19 @@
         <span><i class="bi bi-emoji-smile-fill t i2"></i> <h1>proposed</h1></span>
         
 
-        <div *ngFor="let c2 of clients[1]">
-        <div class="box aos-init aos-animate c2"  data-aos="fade-up">
+        <div *ngFor="let c2 of client">
+        <div class="box aos-init aos-animate c2" *ngIf="c2.estatus === 'PROPOSED'"  data-aos="fade-up">
           <div class="btn-wrap">
-            <button href="#" class="btndinfo" (click)="openFormModal()"><i class="bi bi-star-fill"></i></button>
           </div>
           <h3>proposed</h3>
           <ul>
-            <li>{{c2.id}}</li>
-           
+            <li>{{c2.actor.fullname}}</li>
+            <li>{{c2.actor.email}}</li>
+            <li>{{c2.actor.phone}}</li>           
           </ul>
           <div class="btn-wrap">
-            <button href="#" class="btndown" (click)="deplacerElementArriere(1,c2.id)"><i class="bi bi-arrow-down-left"></i></button>
-            <button href="#" class="btntop" (click)="deplacerElementAvant(1,c2.id)"><i class="bi bi-arrow-up-right"></i></button>
+            <button href="#" class="btndown" (click)="changeRelationStatusDown(c2.id, c2.actor.id, c2.estatus)"><i class="bi bi-arrow-down-left"></i></button>
+            <button href="#" class="btntop" (click)="changeRelationStatusTop(c2.id, c2.actor.id, c2.estatus)"><i class="bi bi-arrow-up-right"></i></button>
           </div>
         </div>
         <hr>
@@ -111,18 +109,17 @@
       <div class="col order-last">
         <span><i class="bi bi-emoji-sunglasses-fill t i3"></i><h1>won</h1></span>
 
-        <div *ngFor="let c3 of clients[2]">
-        <div class="box aos-init aos-animate c3"  data-aos="fade-left">
+        <div *ngFor="let c3 of client">
+        <div class="box aos-init aos-animate c3" *ngIf="c3.estatus === 'WON'"  data-aos="fade-left">
           <div class="btn-wrap">
-            <button href="#" class="btndinfo" (click)="openFormModal()"><i class="bi bi-star-fill"></i></button>
           </div>
-          <h3>won</h3>
           <ul>
-            <li>{{c3.id}}</li>
-           
+            <li>{{c3.actor.fullname}}</li>
+            <li>{{c3.actor.email}}</li>
+            <li>{{c3.actor.phone}}</li>           
           </ul>
           <div class="btn-wrap">
-            <button href="#" class="btndown" (click)="deplacerElementArriere(2,c3.id)"><i class="bi bi-arrow-down-left"></i></button>
+            <button href="#" class="btndown" (click)="changeRelationStatusDown(c3.id, c3.actor.id, c3.estatus)"><i class="bi bi-arrow-down-left"></i></button>
           </div>
         </div>
         <hr>
