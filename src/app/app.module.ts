@@ -35,7 +35,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { MainEntrepriseListComponent } from './EntrepriseList/main-entrepriseList/main-entrepriseList.component';
 import { EntrepriseListComponent } from './EntrepriseList/entreprise-List/entreprise-list.component';
 import { MainDashboardProfilComponent } from './BackOffice/Dashboard_profil/main-dashboard-profil/main-dashboard-profil.component';
-
+import { AnnonceListComponent } from  './AnnonceList/annonce-List/annonce-list.component';
+import { MainAnnonceListComponent } from  './AnnonceList/main-annonceList/main-annonceList.component';
 import { DashboardHeaderComponent } from './BackOffice/dashboard-header/dashboard-header.component';
 import { DashboardSideBarComponent } from './BackOffice/dashboard-side-bar/dashboard-side-bar.component';
 import { DashboardFooterComponent } from './BackOffice/dashboard-footer/dashboard-footer.component';
@@ -47,11 +48,7 @@ import { ContratComponent } from './BackOffice/contrat/contrat.component';
 import { ForumComponent } from './BackOffice/forum/forum.component';
 import { MdbFormsModule } from 'mdb-angular-ui-kit/forms';
 import { AuthServiceService } from './serviceBack/auth-service.service';
-import {
-  FacebookLoginProvider,
-  SocialLoginModule,
-  SocialAuthServiceConfig,
-} from 'angularx-social-login';
+
 import { ResetFormComponent } from './auth/reset-form/reset-form.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RecaptchaModule } from 'ng-recaptcha';
@@ -81,11 +78,12 @@ import { CrmClientsComponent } from './CRM/crm-clients/crm-clients.component';
     SigninFormComponent,
     SignupFormComponent,
     ForgedPwdFormComponent,
-  
+    AnnonceListComponent,
     MainServiceComponent,
     ServiceInfoComponent,
     PartnershiptypeComponent,
     PartnershipTypeMainComponent,
+    MainAnnonceListComponent,
     MainReFormComponent,
     validationComponent,
     FormCardComponent,
@@ -115,29 +113,15 @@ import { CrmClientsComponent } from './CRM/crm-clients/crm-clients.component';
     BrowserModule,
     HttpClientModule,
     HttpClientModule,
-    SocialLoginModule,
     BrowserAnimationsModule,
     MdbFormsModule,
     RecaptchaModule,
     FullCalendarModule, // register FullCalendar with your app,
-    DragDropModule,
+    
 
 
   ],
-  providers: [AuthServiceService,
-    {
-      provide: 'SocialAuthServiceConfig',
-      useValue: {
-        autoLogin: false,
-        providers: [
-          {
-            id: FacebookLoginProvider.PROVIDER_ID,
-            provider: new FacebookLoginProvider('485696880209784'),
-          },
-        ],
-      } as SocialAuthServiceConfig,
-    },
-  ],
+  providers: [AuthServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

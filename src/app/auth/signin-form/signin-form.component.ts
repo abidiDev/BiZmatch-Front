@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { FacebookLoginProvider, SocialAuthService } from 'angularx-social-login';
 import { AuthServiceService } from 'src/app/serviceBack/auth-service.service';
 import { CrmServiceService } from 'src/app/serviceBack/crm-service.service';
 import { TokenStorageService } from 'src/app/serviceBack/token-storage.service';
@@ -35,6 +34,7 @@ export class SigninFormComponent implements OnInit{
   }
   constructor( private crmS: CrmServiceService ,public  router:Router,public authService: AuthServiceService,  private tokenStorage: TokenStorageService, private socialAuthService: SocialAuthService
      ){
+
       this.captcha = "ok";
 
   }
@@ -84,7 +84,5 @@ export class SigninFormComponent implements OnInit{
     window.location.reload();
   }
 
-  loginWithFacebook(): void {
-    this.socialAuthService.signIn(FacebookLoginProvider.PROVIDER_ID);
-  }
+ 
 }

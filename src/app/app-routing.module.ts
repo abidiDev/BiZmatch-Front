@@ -14,7 +14,8 @@ import { topicMessageComponent } from './partnershipForm/topicMessage/topicMessa
 
 import { MainEntrepriseListComponent } from './EntrepriseList/main-entrepriseList/main-entrepriseList.component';
 import { EntrepriseListComponent } from './EntrepriseList/entreprise-List/entreprise-list.component';
-
+import { AnnonceListComponent } from  './AnnonceList/annonce-List/annonce-list.component';
+import { MainAnnonceListComponent } from  './AnnonceList/main-annonceList/main-annonceList.component';
 import { DashboardMainComponent } from './BackOffice/dashboard-main/dashboard-main.component';
 import { StatisticComponent } from './BackOffice/statistic/statistic.component';
 import { MainDashboardProfilComponent } from './BackOffice/Dashboard_profil/main-dashboard-profil/main-dashboard-profil.component';
@@ -67,6 +68,7 @@ const routes: Routes = [
     component: MainEntrepriseListComponent, 
    
   },
+ 
   
   {
     path: 'EntrepriseListComponent/:id',
@@ -126,6 +128,11 @@ const routes: Routes = [
 
 
     ]},
+    {
+      path: 'MainAnnonceListComponent',
+      component: MainAnnonceListComponent, 
+     
+    },
     
     { path: '404', component: NotFoundComponent },  // Wildcard route for a 404 page
     { path: '**', component: NotFoundComponent },  // Wildcard route for a 404 page
