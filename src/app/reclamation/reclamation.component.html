@@ -1,0 +1,34 @@
+
+
+<div class="container">
+    <form (ngSubmit)="onSubmit(reclamationForm)" #reclamationForm="ngForm">
+       <div class="form-group">
+         <label for="subject">Subject</label>
+         <input type="text" class="form-control" id="subject" required [(ngModel)]="reclamation.subject" name="subject">
+        
+       </div>
+       <div class="form-group">
+         <label for="description">Description</label>
+         <textarea class="form-control" id="description" required [(ngModel)]="reclamation.description" name="description" style="height:300px;"></textarea>
+         
+       </div>
+       <div [hidden]="reclamationForm.invalid">
+        <re-captcha (resolved)="resolved()" siteKey="6LeNYPUlAAAAAMIYkdYR8kHDMJM33EkWP3yQ55jC
+        "></re-captcha>
+      </div>
+      <div [hidden]="!captcha">
+      </div>
+       
+     
+     
+
+       <button type="submit" class="btn btn-primary" [disabled]="!reclamationForm.form.valid|| !captchaValid">Soumettre</button>
+    </form>
+    <div class="alert alert-success" *ngIf="reclamationEnvoyee">
+        Réclamation envoyée avec succès !
+      </div>
+   </div>
+ 
+
+
+

@@ -5,6 +5,7 @@ import { AuthServiceService } from 'src/app/serviceBack/auth-service.service';
 import { CrmServiceService } from 'src/app/serviceBack/crm-service.service';
 import { TokenStorageService } from 'src/app/serviceBack/token-storage.service';
 
+
 @Component({
   selector: 'app-signin-form',
   templateUrl: './signin-form.component.html',
@@ -21,7 +22,9 @@ export class SigninFormComponent implements OnInit{
   errorMessage = '';
   roles: string[] = [];
   captcha:String;
+
   entreprise!:any[];
+
 
 
   ngOnInit(): void {
@@ -32,7 +35,12 @@ export class SigninFormComponent implements OnInit{
     }
     
   }
-  constructor( private crmS: CrmServiceService ,public  router:Router,public authService: AuthServiceService,  private tokenStorage: TokenStorageService){
+
+  
+
+
+  constructor( private crmS: CrmServiceService ,public  router:Router,public authService: AuthServiceService,  private tokenStorage: TokenStorageService, private socialAuthService: SocialAuthService
+     ){
 
       this.captcha = "ok";
 
@@ -63,6 +71,7 @@ export class SigninFormComponent implements OnInit{
       this.authService.User=data;
       this.roles = this.tokenStorage.getUser().roles;
       this.captcha = "";
+
 
 
     /*   this.roles.forEach( (value) => {

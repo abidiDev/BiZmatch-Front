@@ -13,6 +13,7 @@ const httpOptions = {
 export class AuthServiceService {
   formModal: any;
   User:any;
+  
 
   constructor(private http: HttpClient) { }
 

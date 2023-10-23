@@ -53,10 +53,18 @@ import { ResetFormComponent } from './auth/reset-form/reset-form.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RecaptchaModule } from 'ng-recaptcha';
 import { FullCalendarModule } from '@fullcalendar/angular';
+
+import { ReclamationComponent } from './reclamation/reclamation.component';
+import { ListReclamationComponent } from './list-reclamation/list-reclamation.component';
+import { SideBarComponent } from './side-bar/side-bar.component';
+import { GestionReclamationComponent } from './gestion-reclamation/gestion-reclamation.component';
+
+
 import { MainCRMComponent } from './CRM/main-crm/main-crm.component';
 import { CRMContentComponent } from './CRM/crmcontent/crmcontent.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { CrmClientsComponent } from './CRM/crm-clients/crm-clients.component';
+
 
 @NgModule({
   declarations: [
@@ -101,9 +109,16 @@ import { CrmClientsComponent } from './CRM/crm-clients/crm-clients.component';
     ContratComponent,
     ForumComponent,
     ResetFormComponent,
+
+    ReclamationComponent,
+    ListReclamationComponent,
+    SideBarComponent,
+    GestionReclamationComponent,
+
     MainCRMComponent,
     CRMContentComponent,
     CrmClientsComponent,
+
   ],
   imports: [
     BrowserModule,

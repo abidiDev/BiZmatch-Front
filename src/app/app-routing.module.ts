@@ -30,6 +30,9 @@ import { MainCRMComponent } from './CRM/main-crm/main-crm.component';
 import { CrmClientsComponent } from './CRM/crm-clients/crm-clients.component';
 import { CRMContentComponent } from './CRM/crmcontent/crmcontent.component';
 import { NgModule } from '@angular/core';
+import { ReclamationComponent } from './reclamation/reclamation.component';
+import { ListReclamationComponent } from './list-reclamation/list-reclamation.component';
+import { GestionReclamationComponent } from './gestion-reclamation/gestion-reclamation.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'vitrine', pathMatch: 'full' }
@@ -63,6 +66,17 @@ const routes: Routes = [
     component: MainServiceComponent, 
    
   },
+  {
+    path: 'DashboardMainComponent/list-reclamation',
+    component: ListReclamationComponent, 
+   
+  },
+  {
+    path: 'DashboardMainComponent/rec',
+    component: GestionReclamationComponent, 
+   
+  },
+
   {
     path: 'MainEntrepriseListComponent',
     component: MainEntrepriseListComponent, 
@@ -113,9 +127,14 @@ const routes: Routes = [
     component:ContratComponent, },
     { path: 'ForumComponent',
     component:ForumComponent, },
+    
    
      ]
     },
+
+    { path: 'faq', component: DashboardMainComponent, canActivate:[AuthguardGuard] },
+    { path: 'DashboardMainComponent/reclamation', component: ReclamationComponent },
+
     { path: 'MainCRMComponent',
     component:MainCRMComponent,  children :[
       { path: '',
@@ -134,8 +153,10 @@ const routes: Routes = [
      
     },
     
+
     { path: '404', component: NotFoundComponent },  // Wildcard route for a 404 page
     { path: '**', component: NotFoundComponent },  // Wildcard route for a 404 page
+    
   
 
 ];
