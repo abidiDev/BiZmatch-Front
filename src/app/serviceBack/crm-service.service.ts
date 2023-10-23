@@ -51,7 +51,6 @@ export class CrmServiceService {
   }
   addPartnership( ): Observable<any> {
     const url = "http://localhost:6543/entreprise/createPartnership/";
-    console.log(this.http.post(url , this.partnership))
     return this.http.post(url , this.partnership)
   }
   addPartnershipRequest(partnershiR:any ): Observable<any> {
@@ -63,7 +62,33 @@ export class CrmServiceService {
     const url = "http://localhost:6543/entreprise/createEntreprise/";
     return this.http.post(url , entrepriseR)
   }
-  
+  /*************************clients************************** */
+
+  Allrelations(ide : number): Observable<any> {
+    const url = "http://localhost:6544/crm/relations/"+ide;
+
+    return this.http.get(url);
+
+  }
+  changeRelationStatusTop( upR : any): Observable<any> {
+    const url = "http://localhost:6544/crm/changeRelationStatusTop";
+    return this.http.post(url , upR)
+  }
+
+  changeRelationStatusDown(downR:any ): Observable<any> {
+    const url = "http://localhost:6544/crm/changeRelationStatusDown/";
+    return this.http.post(url , downR)
+  }
+
+  createRelation(relation:any ): Observable<any> {
+    const url = "http://localhost:6544/crm/createRelation";
+    return this.http.post(url , relation)
+  }
+
+  addClient(client:any ): Observable<any> {
+    const url = "http://localhost:6060/api/auth/addClient";
+    return this.http.post(url , client)
+  }
 }
 
 
