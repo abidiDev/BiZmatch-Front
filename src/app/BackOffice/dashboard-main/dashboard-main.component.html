@@ -14,12 +14,25 @@
             </a>
           </li><!-- End Dashboard Nav -->
              
-          <li class="nav-item" *ngIf="userId!==3">
+         
+
+        
+             
+          <li class="nav-item">
             <a class="nav-link collapsed" [routerLink]="['/DashboardMainComponent/MainDashboardProfilComponent',userIdFromStorage]">
               <i class="bi bi-person"></i>
               <span>Profile</span>
             </a>
           </li>
+
+    
+        
+    
+         
+    
+            <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#" aria-expanded="false" [routerLink]="['DatatableComponent']">
+              <i class="bi bi-layout-text-window-reverse"></i><span>Partnership</span>
+            </a>
 
     
 
@@ -35,9 +48,7 @@
         </ul>
       </li>
     
-            <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#" aria-expanded="false" [routerLink]="['DatatableComponent']" *ngIf="userId!==3">
-              <i class="bi bi-layout-text-window-reverse"></i><span>Partnership</span>
-            </a>
+            
 
          
 
